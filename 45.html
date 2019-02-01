@@ -282,7 +282,19 @@
 
 
 
+    <h3>Задача 16. Найдите и удалите все комментарии HTML</a></h3>
 
+    <script>
+
+        const str16 = '<!--ddd--> dfjsd <!--dd2d--> ';
+
+        const out16 = str16.replace(/<!--[a-z0-9]+-->/g, '');
+
+        console.log(str16, ' - ', out16);
+
+
+    </script>
+    <hr>
 
 
 
