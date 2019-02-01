@@ -233,6 +233,24 @@
     <hr>
 
 
+    <h2>Задачи на replace</h2>
+
+    <h3>Задача 13. С помощью replace замените в строке домены вида
+        http://site.ru, http://site.com на <a href="http://site.ru">site.ru</a></h3>
+
+    <script>
+
+        const str13 = 'aa aba abba  http://sigte.ru abbba abbbba abbbbba';
+
+        const out13 = str13.replace(/(http[s]?:\/\/([0-9a-z-_.]+\.[a-z]{2,}))/g, '<a href="$1">$2</a>');
+
+        console.log(str13, ' - ', out13);
+
+
+    </script>
+    <hr>
+
+
 
 
 
