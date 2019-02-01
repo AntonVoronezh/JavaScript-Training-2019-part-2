@@ -116,7 +116,22 @@
 
 
 
-  
+    <h3>Задача 6. С помощью test определите, что переданная строка является доменом.
+        Примеры доменов: http://site.ru, http://site.com</h3>
+
+    <script>
+
+        const str6 = 'http://site.ru';
+
+        const out6 = /^http:\/\/[0-9a-z-_.]+\.[a-z]{2,}$/.test(str6);
+
+
+        console.log(str6, ' - ', out6);
+
+
+    </script>
+    <hr>
+
 
 
 
