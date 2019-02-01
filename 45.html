@@ -133,6 +133,21 @@
     <hr>
 
 
+    <h3>Задача 7. С помощью test определите, что переданная строка является
+        доменом вида http://site.ru. Протокол может быть как http, так и https</h3>
+
+    <script>
+
+        const str7 = 'https://site.ru';
+
+        const out7 = /^http[s]*:\/\/[0-9a-z-_.]+\.[a-z]{2,}$/.test(str7);
+
+
+        console.log(str7, ' - ', out7);
+
+
+    </script>
+    <hr>
 
 
 
