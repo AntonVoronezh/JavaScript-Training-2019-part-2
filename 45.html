@@ -62,6 +62,24 @@
     <hr>
 
 
+    <h2>Задачи на test и match</h2>
+
+    <h3>Задача 3. С помощью метода test определите, что переданная строка является емэйлом.
+        Примеры емэйлов для тестирования mymail@mail.ru, my.mail@mail.ru,
+        my-mail@mail.ru, my_mail@mail.ru, mail@mail.com, mail@mail.by, mail@yandex.ru.</h3>
+
+    <script>
+
+        const str3 = 'mail@yandex.ru';
+
+        const out3 = /^[0-9a-z-_.]+@[a-z]+\.[a-z]{2,}$/.test(str3);
+
+        console.log(str3, ' - ', out3);
+
+
+    </script>
+    <hr>
+
 
 
 
