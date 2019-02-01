@@ -56,6 +56,38 @@
     </script>
     <hr>
 
+    <h3>Задача 2. Пусть дан следующий код:
+
+        <input id="elem" value="привет">
+        var elem = document.getElementById('elem');
+
+        function func(surname, name) {
+        alert(this.value + ', ' + surname + ' ' + name);
+        }
+
+        func(); //тут должно вывести 'привет, Иванов Иван'
+        Добавьте в последнюю строчку метод call() так, чтобы на экран вывелось
+        'привет, Иванов Иван'. Слово 'привет' должно взяться из value инпута,
+        а 'Иванов' и 'Иван' должны быть параметрами функциями.</h3>
+
+    <input id="elem2" value="привет">
+    <script>
+
+        const inp2 = document.querySelector('#elem2');
+
+
+        function func2(surname, name) {
+            console.log(this.value + ', ' + surname + ' ' + name);
+        }
+
+        func2.call(inp2, 'kkkk', 'mmmmm');
+
+
+
+
+    </script>
+    <hr>
+
 
 
 
