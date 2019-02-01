@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .canvas {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+
+        .can {
+            background-color: #ccc;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на работу с canvas на JavaScript</h2>
+
+    <h2>На линии</h2>
+
+    <h3>Задача 1. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="canvas tsk1"></canvas>
+
+    <script>
+
+        const tsk1 = document.querySelector('.tsk1');
+        const ctx1 = tsk1.getContext('2d');
+
+        ctx1.beginPath();
+
+        ctx1.moveTo(50, 50);
+
+        ctx1.lineTo(150, 50);
+
+        ctx1.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="canvas tsk2"></canvas>
+
+    <script>
+
+        const tsk2 = document.querySelector('.tsk2');
+        const ctx2 = tsk2.getContext('2d');
+
+        ctx2.beginPath();
+
+        ctx2.moveTo(50, 50);
+
+        ctx2.lineTo(50, 100);
+
+        ctx2.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 3. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="canvas tsk3"></canvas>
+
+    <script>
+
+        const tsk3 = document.querySelector('.tsk3');
+        const ctx3 = tsk3.getContext('2d');
+
+        ctx3.beginPath();
+
+        ctx3.moveTo(50, 50);
+
+        ctx3.lineTo(100, 100);
+
+        ctx3.stroke();
+
+        ctx3.beginPath();
+
+        ctx3.moveTo(50, 100);
+
+        ctx3.lineTo(100, 50);
+
+        ctx3.stroke();
+
+
+    </script>
+    <hr>
+
+
+
+
+    <h3>Задача 4. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="canvas tsk4"></canvas>
+
+    <script>
+
+        const tsk4 = document.querySelector('.tsk4');
+        const ctx4 = tsk4.getContext('2d');
+
+        ctx4.beginPath();
+
+        ctx4.strokeRect(50, 50, 100, 50);
+
+        ctx4.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 5. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="can  tsk5" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx5 = document.querySelector('.tsk5').getContext('2d');
+
+        ctx5.beginPath();
+
+        ctx5.moveTo(50, 100);
+
+        ctx5.lineTo(150, 100);
+
+        ctx5.lineTo(100, 50);
+
+        ctx5.closePath();
+
+        ctx5.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 6. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="can  tsk6" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx6 = document.querySelector('.tsk6').getContext('2d');
+
+        ctx6.beginPath();
+
+        ctx6.moveTo(50, 100);
+
+        ctx6.lineTo(150, 100);
+
+        ctx6.lineTo(130, 80);
+
+        ctx6.moveTo(150, 100);
+
+        ctx6.lineTo(130, 120);
+
+        ctx6.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 7. Используя методы moveTo и lineTo для рисования контура и метод fill
+        для его заливки, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk7" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx7 = document.querySelector('.tsk7').getContext('2d');
+
+        ctx7.beginPath();
+
+        ctx7.moveTo(50, 50);
+
+        ctx7.lineTo(100, 50);
+
+        ctx7.lineTo(100, 100);
+
+        ctx7.lineTo(50, 100);
+
+
+        ctx7.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 8. Используя методы moveTo и lineTo для рисования контура и метод fill
+        для его заливки, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk8" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx8 = document.querySelector('.tsk8').getContext('2d');
+
+        ctx8.beginPath();
+
+        ctx8.moveTo(100, 50);
+
+        ctx8.lineTo(150, 100);
+
+        ctx8.lineTo(50, 100);
+
+
+        ctx8.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h2>На фигуры</h2>
+
+    <h3>Задача 9. Используя метод fillRect, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk9" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx9 = document.querySelector('.tsk9').getContext('2d');
+
+        ctx9.beginPath();
+
+        ctx9.fillRect(50, 50, 100, 100);
+
+
+        ctx9.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 10. Используя метод strokeRect, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk10" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx10 = document.querySelector('.tsk10').getContext('2d');
+
+        ctx10.beginPath();
+
+        ctx10.strokeRect(50, 50, 100, 100);
+
+
+        ctx10.fill();
+
+
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 11. Используя методы fillRect и clearRect, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk11" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx11 = document.querySelector('.tsk11').getContext('2d');
+
+        ctx11.beginPath();
+
+        ctx11.fillRect(50, 50, 100, 100);
+
+        ctx11.clearRect(75, 75, 30, 30);
+
+
+        ctx11.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h2>На фигуры</h2>
+
+
+
+    <h3>Задача 12. Используя метод rect, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk12" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx12 = document.querySelector('.tsk12').getContext('2d');
+
+        ctx12.beginPath();
+
+        ctx12.rect(50, 50, 100, 100);
+
+
+
+        ctx12.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 13. Используя метод rect, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk13" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx13 = document.querySelector('.tsk13').getContext('2d');
+
+        ctx13.beginPath();
+
+        ctx13.rect(50, 50, 100, 100);
+
+
+
+        ctx13.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+    <h2>На окружности</h2>
+
+    <h3>Задача 14. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk14" width="200" height="200"></canvas>
+
+    <script>
+
+        function getRadians(degrees) {
+            return (Math.PI / 180) * degrees;
+        }
+
+        const ctx14 = document.querySelector('.tsk14').getContext('2d');
+
+        ctx14.beginPath();
+
+        ctx14.arc(100, 100, 50, 0, getRadians(360));
+
+        ctx14.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 15. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk15" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx15 = document.querySelector('.tsk15').getContext('2d');
+
+        ctx15.beginPath();
+
+        ctx15.arc(100, 100, 50, 0, getRadians(360));
+
+        ctx15.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 16. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk16" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx16 = document.querySelector('.tsk16').getContext('2d');
+
+        ctx16.beginPath();
+
+        ctx16.arc(100, 100, 50, 0, getRadians(180));
+
+        ctx16.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 17. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk17" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx17 = document.querySelector('.tsk17').getContext('2d');
+
+        ctx17.beginPath();
+
+        ctx17.arc(100, 100, 50, 0, getRadians(180));
+
+        ctx17.closePath();
+
+        ctx17.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 18. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk18" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx18 = document.querySelector('.tsk18').getContext('2d');
+
+        ctx18.beginPath();
+
+        ctx18.arc(100, 100, 50, 0, getRadians(180));
+
+        ctx18.closePath();
+
+        ctx18.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 19. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk19" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx19 = document.querySelector('.tsk19').getContext('2d');
+
+        ctx19.beginPath();
+
+        ctx19.arc(100, 100, 50, 0, getRadians(90));
+
+        ctx19.closePath();
+
+        ctx19.fill();
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h2>На смену цвета</h2>
+
+    <h3>Задача 20. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk20" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx20 = document.querySelector('.tsk20').getContext('2d');
+
+        ctx20.beginPath();
+
+        ctx20.strokeStyle = 'red';
+
+        for (let i = 0; i < 2; i += 1) {
+
+            ctx20.moveTo(50, 50);
+
+            ctx20.lineTo(150, 50)
+
+        }
+
+        ctx20.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 21. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk21" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx21 = document.querySelector('.tsk21').getContext('2d');
+
+        ctx21.beginPath();
+
+        ctx21.strokeStyle = 'red';
+
+        ctx21.moveTo(50, 50);
+
+        ctx21.lineTo(150, 50)
+        ctx21.stroke();
+
+        ctx21.beginPath();
+
+        ctx21.strokeStyle = 'green';
+
+        ctx21.moveTo(50, 100);
+
+        ctx21.lineTo(150, 100)
+        ctx21.stroke();
+
+    </script>
+    <hr>
+
+    <h3>Задача 22. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk22" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx22 = document.querySelector('.tsk22').getContext('2d');
+
+        ctx22.beginPath();
+
+        ctx22.fillStyle = 'green';
+
+        ctx22.rect(50, 50, 75, 75)
+
+        ctx22.fill();
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 23. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk23" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx23 = document.querySelector('.tsk23').getContext('2d');
+
+        ctx23.beginPath();
+
+        ctx23.fillStyle = 'green';
+
+        ctx23.rect(50, 50, 25, 25)
+
+        ctx23.fill();
+
+        ctx23.beginPath();
+
+        ctx23.fillStyle = 'red';
+
+        ctx23.rect(100, 100, 25, 25)
+
+        ctx23.fill();
+
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h2>На циклы</h2>
+
+
+    <h3>Задача 24. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk24" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx24 = document.querySelector('.tsk24').getContext('2d');
+
+        for (let i = 0; i < 10; i += 1) {
+
+            ctx24.moveTo(50, 10 * i + 50);
+
+            ctx24.lineTo(150, 10 * i + 50)
+
+        };
+
+        ctx24.stroke();
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 25. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk25" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx25 = document.querySelector('.tsk25').getContext('2d');
+
+        for (let i = 0; i < 10; i += 1) {
+
+            ctx25.moveTo(50, 10 * i + 50);
+
+            ctx25.lineTo(150, 10 * i + 50)
+
+        };
+
+        for (let i = 0; i < 10; i += 1) {
+
+            ctx25.moveTo(10 * i + 55, 45);
+
+            ctx25.lineTo(10 * i + 55, 145)
+
+        };
+
+        ctx25.stroke();
+
+
+    </script>
+    <hr>
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с контекстом в JavaScript</h2>
+
+    <h2>Работа с call</h2>
+
+    <h3>Задача 1. Пусть дан следующий код:
+
+        <input id="elemmmm" value="привет">
+        var elem = document.getElementById('elem');
+
+        function func() {
+        alert(this.value);
+        }
+
+        func(); //тут должно вывести value инпута
+        Добавьте в последнюю строчку метод call() так, чтобы на экран вывелось value инпута,
+        лежащего в переменной elem.</h3>
+
+    <input id="elem" value="привет">
+    <script>
+
+        const inp1 = document.querySelector('#elem');
+
+
+        function func1() {
+            console.log(this.value);
+        }
+
+        func1.call(inp1);
+
+
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 2. Пусть дан следующий код:
+
+        <input id="elem" value="привет">
+        var elem = document.getElementById('elem');
+
+        function func(surname, name) {
+        alert(this.value + ', ' + surname + ' ' + name);
+        }
+
+        func(); //тут должно вывести 'привет, Иванов Иван'
+        Добавьте в последнюю строчку метод call() так, чтобы на экран вывелось
+        'привет, Иванов Иван'. Слово 'привет' должно взяться из value инпута,
+        а 'Иванов' и 'Иван' должны быть параметрами функциями.</h3>
+
+    <input id="elem2" value="привет">
+    <script>
+
+        const inp2 = document.querySelector('#elem2');
+
+
+        function func2(surname, name) {
+            console.log(this.value + ', ' + surname + ' ' + name);
+        }
+
+        func2.call(inp2, 'kkkk', 'mmmmm');
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h2>Работа с apply</h2>
+
+    <h3>Переделайте решение предыдущей задачи так, чтобы место метода call() был метод apply().</h3>
+
+    <script>
+
+
+        func2.apply(inp2, ['kkkk', 'mmmmm']);
+
+
+
+    </script>
+
+
+    <hr>
+
+
+    <h2>Работа с bind</h2>
+
+    <h3>Пусть дан следующий код:
+
+        <input id="elem" value="привет">
+        var elem = document.getElementById('elem');
+
+        function func(surname, name) {
+        alert(this.value + ', ' + surname + ' ' + name);
+        }
+
+        //Тут напишите конструкцию с bind()
+
+        func('Иванов', 'Иван'); //тут должно вывести 'привет, Иванов Иван'
+        func('Петров', 'Петр'); //тут должно вывести 'привет, Петров Петр'</h3>
+
+    <input id="elem4" value="привет">
+
+    <script>
+
+        const inp4 = document.querySelector('#elem4');
+
+
+        function func4(surname, name) {
+            console.log(this.value + ', ' + surname + ' ' + name);
+        }
+
+        func4 = func4.bind(inp4);
+
+        func4('Иванов', 'Иван');
+        func4('Петров', 'Петр'); 
+
+    </script>
+
+
+    <hr>
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
