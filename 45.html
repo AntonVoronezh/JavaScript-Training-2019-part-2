@@ -98,6 +98,23 @@
     <hr>
 
 
+    <h3>Задача 5. С помощью test определите, что переданная строка является доменом.
+        Примеры доменов: site.ru, site.com, my-site.com </h3>
+
+    <script>
+
+        const str5 = 'my-site.com';
+
+        const out5 = /^[0-9a-z-_.]+\.[a-z]{2,}$/.test(str5);
+
+
+        console.log(str5, ' - ', out5);
+
+
+    </script>
+    <hr>
+
+
 
   
 
