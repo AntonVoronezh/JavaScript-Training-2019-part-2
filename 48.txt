@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на работу с JSON</h2>
+
+
+    <h3>Задача 1. Дана JSON строка '["Коля", "Вася", "Петя"]'.
+        Преобразуйте ее в массив JavaScript и выведите на экран элемент "Петя".</h3>
+
+    <script>
+
+        const json1 = '["Коля", "Вася", "Петя"]';
+
+        const res1 = JSON.parse(json1);
+
+        console.log(res1[2]);
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Дан объект {a: 'aaa', b: 'bbb'}. Преобразуйте его в JSON</h3>
+
+    <script>
+
+        const obj2 = { a: 'aaa', b: 'bbb' };
+
+        const res2 = JSON.stringify(obj2);
+
+        console.log(res2);
+
+
+    </script>
+    <hr>
+
+
+    <h2>Задачи на работу с куки (cookie) </h2>
+
+
+    <h3>Задача 1. Установите куку с именем 'name' и значением 'Иван'.
+        Выведите содержимое этой куки на экран</h3>
+
+    <script>
+
+        document.cookie = 'name=ffffff';
+
+
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        }
+
+        console.log(getCookie('name'));
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Установите куку с вашем именем и вашим возрастом.
+        Выведите на экран содержимое этих двух кук.</h3>
+
+    <script>
+
+        document.cookie = 'name=bbbbbb';
+        document.cookie = 'age=2222';
+
+
+        console.log(getCookie('name'), getCookie('age'));
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 3. Дан инпут. Ведите в него город, например, Минск.
+        Сохраните его в куки. Зайдя на другую страницу сайта вы должны увидеть
+        фразу 'ваш город - Минск'.</h3>
+
+    <input type="text" class="inp3">
+    <p class="p3"></p>
+
+    <script>
+        const inp3 = document.querySelector('.inp3');
+        const p3 = document.querySelector('.p3');
+
+
+
+        inp3.addEventListener('blur', () => {
+
+            console.log(inp3.value);
+
+
+            document.cookie = 'path=/; domain=.127.0.0.1; city=' + inp3.value;
+
+        });
+
+        console.log(getCookie('city'));
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 4. При заходе на страницу спросите с помощью инпута день рождения пользователя.
+        Когда он зайдет с следующий раз - напишите сколько месяцев, дней, часов, минут и
+        секунд осталось до его дня рождения. И пусть по этим числам запуститься обратный
+        отсчет (то есть они будут тикать).</h3>
+
+    <input type="text" class="inp4" placeholder="21.02.2000">
+    <table>
+        <tr>
+            <td id="hours"></td>
+            <td id="minutes"></td>
+            <td id="seconds"></td>
+        </tr>
+    </table>
+
+    <script>
+        const inp4 = document.querySelector('.inp4');
+        const p4 = document.querySelector('.p4');
+
+
+
+        window.addEventListener('load', () => {
+
+            go();
+
+        });
+
+        let birthday = [];
+
+        inp4.addEventListener('blur', function () {
+
+            const arrVal = this.value.split('.');
+
+            document.cookie = 'day=' + arrVal[0];
+            document.cookie = 'month=' + arrVal[1];
+            document.cookie = 'year=' + arrVal[2];
+
+        });
+
+        console.log(getCookie('day'), getCookie('month'), getCookie('year'));
+
+        function go() {
+
+
+            window.timerId = window.setInterval(function () {
+
+                timer(getCookie('year'), getCookie('month'), getCookie('day'))
+
+            }, 1000);
+        };
+
+
+        function timer(arg1, arg2, arg3) {
+            var seconds = document.getElementById('seconds');
+            var minutes = document.getElementById('minutes');
+            var hours = document.getElementById('hours');
+            var now = new Date();
+            var midnight = new Date(arg1, arg2, arg3);
+            var diff = Math.floor((midnight - now) / 1000);//разница в милисекундах, перевели в секунды
+            var hoursRemain = Math.floor(diff / (60 * 60));
+            var minutesRemain = Math.floor((diff - hoursRemain * 60 * 60) / 60);
+            var secondsRemain = Math.floor(diff % 60);
+            hours.innerHTML = hoursRemain;
+            minutes.innerHTML = addZero(minutesRemain);
+            seconds.innerHTML = addZero(secondsRemain);
+        };
+        function addZero(num) {
+            if (num <= 9) return '0' + num;
+            else return num;
+        };
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 5. Дана форма с инпутами. Пользователь вводит какие-то данные и
+        закрывает страницу (не факт, что он заполнил всю форму). Сделайте так,
+        чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах</h3>
+
+    <input type="text" class="inp41">
+    <input type="text" class="inp42">
+    <input type="text" class="inp43">
+
+    <script>
+        const inp41 = document.querySelector('.inp41');
+        const inp42 = document.querySelector('.inp42');
+        const inp43 = document.querySelector('.inp43');
+
+
+        inp41.addEventListener('blur', () => {
+
+            document.cookie = 'inp41=' + inp41.value;
+
+        });
+
+        inp42.addEventListener('blur', () => {
+
+            document.cookie = 'inp42=' + inp42.value;
+
+        });
+
+        inp43.addEventListener('blur', () => {
+
+            document.cookie = 'inp43=' + inp43.value;
+
+        });
+
+        window.addEventListener('load', function () {
+
+            inp41.value = getCookie('inp41');
+            inp42.value = getCookie('inp42');
+            inp43.value = getCookie('inp43');
+
+
+        });
+
+        console.log(getCookie('inp41'));
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 6. Даны чекбоксы. Пользователь произвольно отмечает их и закрывает страницу.
+        Сделайте так, чтобы при следующем заходе на страницу чекбоксы стали отмеченными
+        так, как это сделал пользователь ранее.</h3>
+
+
+    <input type="checkbox" class="inp61">
+    <input type="checkbox" class="inp62">
+    <input type="checkbox" class="inp63">
+
+
+    <script>
+        const inp61 = document.querySelector('.inp61');
+        const inp62 = document.querySelector('.inp62');
+        const inp63 = document.querySelector('.inp63');
+
+
+        inp61.addEventListener('blur', () => {
+
+            if (inp61.checked) {
+
+                document.cookie = 'inp61=true';
+
+            }
+
+        });
+
+        inp62.addEventListener('blur', () => {
+
+            if (inp62.checked) {
+
+                document.cookie = 'inp62=true';
+
+            }
+
+        });
+
+        inp63.addEventListener('blur', () => {
+
+            if (inp63.checked) {
+
+                document.cookie = 'inp63=true';
+
+            }
+
+        });
+
+        window.addEventListener('load', function () {
+
+            if (getCookie('inp61')) {
+
+                inp61.checked = true;
+
+            }
+
+
+            if (getCookie('inp62')) {
+
+                inp62.checked = true;
+
+            }
+
+
+            if (getCookie('inp63')) {
+
+                inp63.checked = true;
+
+            }
+
+
+        });
+
+        console.log(getCookie('inp61'));
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 7. При заходе на страницу появляется счетчик обратного отсчета.
+        Когда он доходит до нуля, на странице пишется - 'отсчет закончен'.
+        При обновлении страницы счетчик не должен начинать идти заново.</h3>
+
+
+    <p class="p7">10</p>
+
+    <script>
+
+
+
+
+        window.addEventListener('load', function () {
+
+            if (getCookie('p7')) {
+
+                // console.log('--');
+
+            } else {
+
+                go7();
+
+            }
+
+            document.cookie = 'p7=true';
+
+
+        });
+
+
+
+        function go7() {
+            window.timerId = window.setInterval(timer7, 300);
+        };
+
+        function stop() {
+            window.clearInterval(window.timerId);
+        };
+
+        function timer7() {
+            var test = document.querySelector('.p7');
+            var number = parseInt(test.innerHTML) - 1;
+            test.innerHTML = number;
+            if (number == 0) {
+                stop();
+                test.innerHTML = 'Обратный отсчет завершен.';
+            }
+        }
+    </script>
+    <hr>
+
+
+
+
+
+    <h3>Задача 8. Дан тектареа. Пользователь может потянуть за его угол и
+        изменить его размер. Сделайте так, чтобы при следующем заходе на страницу,
+        текстареа был заданного размера.</h3>
+
+
+    <textarea class="t10"></textarea>
+
+    <script>
+
+
+        const t10 = document.querySelector('.t10');
+
+
+
+        window.onunload = function () {
+
+            document.cookie = 'width=' + t10.offsetWidth;
+
+            document.cookie = 'height=' + t10.offsetHeight;
+
+
+        };
+
+        console.log(getCookie('width'), getCookie('height'));
+
+
+        window.addEventListener('load', function () {
+
+
+            if (getCookie('width')) {
+
+                t10.style.width = getCookie('width') + 'px';
+
+            }
+
+            if (getCookie('height')) {
+
+                t10.style.height = getCookie('height') + 'px';
+
+            }
+
+
+        });
+
+
+
+
+    </script>
+
+    <hr>
+
+
+    <h3>Задача 9. Дан инпут. В него можно ввести данные, затем поредактировать их,
+        затем еще поредактировать. Пусть инпут хранит историю своих изменений
+        (даже после перезагрузки страницы). Сверху над инпутом должны появится стрелочки,
+        с помощью которых можно перемещаться по истории</h3>
+
+
+    <input type="text" class="inp9"></input>
+
+    <script>
+
+
+        const inp9 = document.querySelector('.inp9');
+
+        inp9.addEventListener('blur', function () {
+
+            if (getCookie('inp9')) {
+
+                document.cookie = 'inp9=' + getCookie('inp9') + '*' + inp9.value;
+
+            } else {
+
+                document.cookie = 'inp9=' + inp9.value;
+
+            }
+
+        });
+
+        console.log(getCookie('inp9'));
+
+
+    </script>
+
+
+
+    <h3>Задача 10. Дан сайт. Пусть каждая страница для каждого посетителя хранит время
+        последнего захода и количество заходов на нее этим посетителем.
+        Пусть эти данные показываются при заходе в формате 'с последнего захода прошло
+        ... вы посещали эту страницу ... раз'.</h3>
+
+
+    <p class="p10"></p>
+
+    <script>
+
+
+        const p10 = document.querySelector('.p10');
+
+
+        window.addEventListener('load', function () {
+
+            const date = new Date();
+
+            if (getCookie('count')) {
+
+                document.cookie = 'count=' + (+getCookie('count') + 1);
+
+                p10.innerHTML = `вы посещали эту страницу ${getCookie('count')} раз.`;
+
+            } else {
+
+                document.cookie = 'count=1';
+
+            }
+
+            if (getCookie('time')) {
+
+                const diff = (date.getTime() - +getCookie('time')) / 1000;
+
+                document.cookie = 'time=' + date.getTime();
+
+                p10.innerHTML += ` с последнего захода прошло ${diff} сек.`;
+
+            } else {
+
+                document.cookie = 'time=' + date.getTime();
+
+            }
+
+
+        });
+
+        console.log(getCookie('count'), getCookie('time'));
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 11. Пусть по заходу на страницу показывается определенный
+        рекламный текст. Рядом с ним сделайте кнопку 'убрать', по нажатию
+        на которую этот рекламный текст не показывается этому пользователю
+        ровно один день</h3>
+
+    <div class="adv">
+        <img src="http://code.mu/images/mr-koder/relax.png" class="img11">
+        <button class="btn11">X</button>
+    </div>
+
+    <script>
+        const btn11 = document.querySelector('.btn11');
+        const img11 = document.querySelector('.img11');
+
+        if (getCookie('expires')) {
+
+            btn11.style.display = 'none';
+
+            img11.style.display = 'none';
+
+        } else {
+
+            btn11.style.display = 'block';
+
+            img11.style.display = 'block';
+
+            btn11.addEventListener('click', function () {
+
+                date = new Date();
+
+                date.setDate(date.getDate() + 1);
+
+                date =  date.toUTCString();
+
+                document.cookie = 'expires=' + date;
+
+                btn11.style.display = 'none';
+
+                img11.style.display = 'none';
+
+            });
+
+        }
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

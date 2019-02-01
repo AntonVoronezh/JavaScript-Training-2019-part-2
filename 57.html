@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на продвинутую работу с контекстом в JavaScript</h2>
+
+    <h2>Работа с call</h2>
+
+    <h3>Задача 1. Пусть дан следующий код:
+
+        <input id="elemmmm" value="привет">
+        var elem = document.getElementById('elem');
+
+        function func() {
+        alert(this.value);
+        }
+
+        func(); //тут должно вывести value инпута
+        Добавьте в последнюю строчку метод call() так, чтобы на экран вывелось value инпута,
+        лежащего в переменной elem.</h3>
+
+    <input id="elem" value="привет">
+    <script>
+
+        const inp1 = document.querySelector('#elem');
+
+
+        function func1() {
+            console.log(this.value);
+        }
+
+        func1.call(inp1);
+
+
+
+
+    </script>
+    <hr>
+
+
+
+
+    <hr>
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
