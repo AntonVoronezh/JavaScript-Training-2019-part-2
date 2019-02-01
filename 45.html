@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на регулярные выражения JavaScript. Часть 3</h2>
+
+    <h2>На карманы при замене</h2>
+
+
+    <h3>Задача 1. Дана строка 'aaa@bbb eee7@kkk'. Напишите регулярку,
+        которая найдет строки по шаблону: любое количество букв и цифр,
+        символ @, любое количество букв и цифр и поменяет местами то,
+        что стоит до @ на то, что стоит после нее. Например, aaa@bbb должно
+        превратиться в bbb@aaa.</h3>
+
+    <script>
+
+        const str1 = 'aaa@bbb eee7@kkk';
+
+        const out1 = str1.replace(/([0-9a-z]+)@([0-9a-z]+)/g, '$2@$1');
+
+        console.log(str1, ' - ', out1);
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
