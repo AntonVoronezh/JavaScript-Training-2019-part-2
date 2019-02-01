@@ -106,6 +106,39 @@
     <hr>
 
 
+    <h2>Работа с bind</h2>
+
+    <h3>Пусть дан следующий код:
+
+        <input id="elem" value="привет">
+        var elem = document.getElementById('elem');
+
+        function func(surname, name) {
+        alert(this.value + ', ' + surname + ' ' + name);
+        }
+
+        //Тут напишите конструкцию с bind()
+
+        func('Иванов', 'Иван'); //тут должно вывести 'привет, Иванов Иван'
+        func('Петров', 'Петр'); //тут должно вывести 'привет, Петров Петр'</h3>
+
+    <input id="elem4" value="привет">
+
+    <script>
+
+        const inp4 = document.querySelector('#elem4');
+
+
+        function func4(surname, name) {
+            console.log(this.value + ', ' + surname + ' ' + name);
+        }
+
+        func4 = func4.bind(inp4);
+
+        func4('Иванов', 'Иван');
+        func4('Петров', 'Петр'); 
+
+    </script>
 
 
     <hr>
