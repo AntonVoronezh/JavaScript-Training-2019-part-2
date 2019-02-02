@@ -391,6 +391,22 @@
     <hr>
 
 
+    <h2>На '^', '$'</h2>
+
+    <h3>Задача 22. Дана строка 'aaa aaa aaa'.
+        Напишите регулярку, которая заменит первое 'aaa' на '!'.</h3>
+
+    <script>
+
+        const str22 = 'aaa aaa aaa';
+
+        const out22 = str22.replace(/^a+/g, '!');
+
+        console.log(str22, ' - ', out22);
+
+
+    </script>
+    <hr>
 
 
 
