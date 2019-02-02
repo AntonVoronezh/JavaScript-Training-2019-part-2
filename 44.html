@@ -60,6 +60,29 @@
 
 
 
+    <h3>Задача 3. Дана строка 'aa aba abba abbba abbbba abbbbba'.
+        Напишите регулярку, которая найдет строки вида aba, в которых 'b'
+        встречается более 4-х раз (включительно).</h3>
+
+    <script>
+
+        const str3 = 'aa aba abba abbba abbbba abbbbba';
+
+        const out3 = str3.replace(/ab{4,}a/g, '!');
+
+        console.log(str3, ' - ', out3);
+
+
+    </script>
+    <hr>
+
+
+
+    <h2>На \s, \S, \w, \W, \d, \D</h2>
+
+
+
+
 
 
 
