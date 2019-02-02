@@ -501,7 +501,20 @@
 
 
     
-
+    <h3>Задача 28. Дана строка 'bbb /aaa\ bbb /ccc\'. 
+        Напишите регулярку, которая найдет содержимое всех конструкций /...\ и заменит их на '!'. </h3>
+    
+        <script>
+    
+            const str28 = 'bbb \/aaa\\ bbb \/ccc\\';
+    
+            const out28 = str28.replace(/\/.+\\/g, '!');
+    
+            console.log(str28, ' - ', out28);
+    
+    
+        </script>
+        <hr>
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
