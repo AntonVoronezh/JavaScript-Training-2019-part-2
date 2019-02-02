@@ -338,6 +338,23 @@
 
 
 
+    <h3>Задача 19. Дана строка 'aAXa aeffa aGha aza ax23a a3sSa'.
+        Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a', а между ними - маленькие и большие
+        латинские буквы, не затронув остальных.</h3>
+
+    <script>
+
+        const str19 = 'aAXa aeffa aGha aza ax23a a3sSa';
+
+        const out19 = str19.replace(/a[a-zA-Z]+a/g, '!');
+
+        console.log(str19, ' - ', out19);
+
+
+    </script>
+    <hr>
+
 
 
 
