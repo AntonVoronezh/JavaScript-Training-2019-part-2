@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+            height: 100vh;
+            padding: 0;
+            margin: 0;
+        }
+
+        .eng {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .eng__adjectives {
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .eng__adjectives-wrap {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .eng__adjectives-title {
+            width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .eng__text a{
+            font-size: 25px;
+            color: blue;
+            text-decoration: none;
+        }
+
+        .eng__adj-btn {
+            padding: 5px;
+            margin: 5px;
+            margin-left: 10px;
+        }
+        .eng__wrap {
+            padding-left: 10px;
+            padding-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .eng__wrap--flex {
+            display: flex;
+        }
+        .eng__input {
+            margin-left: 20px;
+        }
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="eng">
+        <div class="eng__adjectives">
+            <div class="eng__adjectives-title">
+                adjectives / прилагательные
+            </div>
+            <div class="eng__adjectives-wrap">
+                <div class="eng__wrap">
+                    <p class="eng__text  eng__text--adj-eng"><b></b></p>
+                    <p class="eng__text  eng__text--adj-rus"><b></b></p>
+                    <input type="text" class="eng__input  eng__input--adj  none">
+                </div>
+
+
+                <div class="eng__wrap  eng__wrap--flex">
+                    <div class="eng__wrap">
+                        <span>
+                            <input type="radio" name="adj1" class="eng__adj-radio  eng__adj-radio--rand" checked>
+                            случайно
+                        </span>
+                        <span>
+                            <input type="radio" name="adj1" class="eng__adj-radio  eng__adj-radio--num">
+                            по порядку
+                        </span>
+                    </div>
+                    <div class="eng__wrap">
+
+                        <span>
+                            <input type="radio" name="adj2" class="eng__adj-radio  eng__adj-radio--eng" checked>
+                            eng
+                        </span>
+                        <span>
+                            <input type="radio" name="adj2" class="eng__adj-radio  eng__adj-radio--rus">
+                            рус
+                        </span>
+                        <span>
+                            <input type="checkbox" name="adj3" class="eng__adj-radio  eng__adj-checkbox">
+                            правопис
+                        </span>
+                    </div>
+
+                    <button class="eng__adj-btn">новое слово</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const adjEng = document.querySelector('.eng__text--adj-eng');
+        const adjRus = document.querySelector('.eng__text--adj-rus');
+        const adjBtn = document.querySelector('.eng__adj-btn');
+        const adjRadioEng = document.querySelector('.eng__adj-radio--eng');
+        const adjRadioRus = document.querySelector('.eng__adj-radio--rus');
+        const adjRadioRand = document.querySelector('.eng__adj-radio--rand');
+        const adjRadioNum = document.querySelector('.eng__adj-radio--num');
+        const adjCheckbox = document.querySelector('.eng__adj-checkbox');
+        const adjInput = document.querySelector('.eng__input--adj');
+
+
+        const adjObj = {
+
+            arr: getAdjectives(),
+            inp: adjInput,
+            peng: adjEng,
+            prus: adjRus,
+            radeng: adjRadioEng,
+            radrus: adjRadioRus,
+            radran: adjRadioRand,
+            radnum: adjRadioNum,
+            chec: adjCheckbox
+            
+        };
+
+
+        // console.log(getAdjectives());
+
+
+        adjBtn.addEventListener('click', () => addWords(adjObj));
+
+
+
+        let adjNum = 0;
+
+        function addWords(argObj) {
+
+            const { arr, inp, peng, prus, radeng, radrus, radran, radnum, chec } = argObj;
+
+            const [eng, rus] = getWords(radran, radnum, arr);
+
+            checkSpell(chec, inp);
+
+            selectLang(radeng, radrus, eng, rus, peng, prus);
+
+        };
+
+
+        function checkSpell(argCheck, argElem) {
+
+            if (argCheck.checked) {
+
+                argElem.classList.remove('none');
+
+            } else {
+
+                argElem.classList.add('none');
+
+            }
+
+            console.log(argElem.value);
+            
+
+
+        };
+
+
+        function selectLang(argRadio1, argRadio2, argLang1, argLang2, argElem1, argElem2) {
+
+            if (argRadio1.checked) {
+
+                argElem2.innerHTML = '';
+
+                argElem1.innerHTML = `<a href="https://translate.yandex.ru/?lang=en-ru&text=${argLang1}"
+                    target="blank">${argLang1}</a>`;
+
+            }
+            if (argRadio2.checked) {
+
+                argElem1.innerHTML = '';
+
+                argElem2.innerHTML = `<a href="https://translate.yandex.ru/?lang=ru-en&text=${argLang2}"
+                    target="blank">${argLang2}</a>`;
+
+            }
+
+        };
+
+
+        function getWords(argRan, argNum, argArr) {
+
+            let result;
+
+            if (argRan.checked) {
+
+                result = getRandWord(argArr);
+
+            }
+
+            if (argNum.checked) {
+
+                result = argArr[adjNum];
+
+                adjNum++;
+
+            }
+
+            return result;
+
+        };
+
+
+        function checkWords(argStr1, argStr2) {
+
+            return argStr1 === argStr2;
+
+        };
+
+
+        function getRandWord(argArr) {
+
+            const rand = getRandomInt(0, argArr.length);
+
+            return argArr[rand];
+
+        };
+
+
+
+        function getRandomInt(min, max) {
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        };
+
+
+
+        function getAdjectives() {
+
+            const adjectives = [
+                ['hardworking', 'трудолюбивый'], ['lazy', 'ленивый'], ['sad', 'грустный'], ['happy', 'счастливый'],
+                ['busy', 'занятой'], ['tired', 'уставший'], ['upset', 'расстроенный'], ['shy', 'застенчивый'],
+                ['rich', 'богатый'], ['healthy', 'здоровый'], ['punctual', 'пунктуальный'], ['curios', 'любопытный'],
+                ['interesting', 'интересный'], ['fun', 'веселый'], ['rude', 'грубый'],
+                // [,], [,], [,], [,], [,], [,],
+                // [,], [,], [,], [,], [,], [,],
+            ];
+
+            // console.log(adjectives);
+            return adjectives;
+
+        };
+
+
+
+
+    </script>
+
+</body>
+
+</html>
