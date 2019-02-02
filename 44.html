@@ -266,6 +266,21 @@
 
 
 
+    <h3>Задача 15. Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a', а между ними - буква от a до f и от A до Z.</h3>
+
+    <script>
+
+        const str15 = 'a5a aea aCa aza axa a.a a2a a7a';
+
+        const out15 = str15.replace(/a[a-fA-Z]a/g, '!');
+
+        console.log(str15, ' - ', out15);
+
+
+    </script>
+    <hr>
+
 
 
 
