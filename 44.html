@@ -282,6 +282,23 @@
     <hr>
 
 
+    <h3>Задача 16. Дана строка 'aba aea aca aza axa a-a a#a'.
+        Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a', а между ними - не 'e' и не 'x'</h3>
+
+    <script>
+
+        const str16 = 'aba aea aca aza axa a-a a#a';
+
+        const out16 = str16.replace(/a[^ex]a/g, '!');
+
+        console.log(str16, ' - ', out16);
+
+
+    </script>
+    <hr>
+
+
 
 
 
