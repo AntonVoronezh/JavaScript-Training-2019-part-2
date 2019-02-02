@@ -133,6 +133,22 @@
     <hr>
 
 
+    <h3>Задача 7. Дана строка 'avb a1b a2b a3b a4b a5b abb acb'.
+        Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a' и 'b', а между ними - не число.</h3>
+
+    <script>
+
+        const str7 = 'avb a1b a2b a3b a4b a5b abb acb';
+
+        const out7 = str7.replace(/a[^0-9]b/g, '!');
+
+        console.log(str7, ' - ', out7);
+
+
+    </script>
+    <hr>
+
 
 
 
