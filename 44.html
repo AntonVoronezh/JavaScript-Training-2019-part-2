@@ -42,6 +42,21 @@
     <hr>
 
 
+    <h3>Задача 2. Дана строка 'aa aba abba abbba abbbba abbbbba'.
+        Напишите регулярку, которая найдет строки вида aba, в которых 'b'
+        встречается менее 3-х раз (включительно).</h3>
+
+    <script>
+
+        const str2 = 'aa aba abba abbba abbbba abbbbba';
+
+        const out2 = str2.replace(/ab{0,3}a/g, '!');
+
+        console.log(str2, ' - ', out2);
+
+
+    </script>
+    <hr>
 
 
 
