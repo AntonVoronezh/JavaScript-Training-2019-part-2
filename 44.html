@@ -184,6 +184,23 @@
 
 
 
+    <h2>На [], '^' - не, [a-zA-Z], кириллицу</h2>
+
+    <h3>Задача 10. Дана строка 'aba aea aca aza axa'.
+        Напишите регулярку, которая найдет строки aba, aea, axa, не затронув остальных. </h3>
+
+    <script>
+
+        const str10 = 'aba aea aca aza axa';
+
+        const out10 = str10.replace(/a(b|e|x)a/g, '!');
+
+        console.log(str10, ' - ', out10);
+
+
+    </script>
+    <hr>
+
 
 
 
