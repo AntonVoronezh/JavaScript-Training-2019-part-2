@@ -316,6 +316,26 @@
     <hr>
 
 
+    <h2>На [a-zA-Z] и квантификаторы</h2>
+
+
+    <h3>Задача 18. Дана строка 'aAXa aeffa aGha aza ax23a a3sSa'.
+        Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a', а между ними - маленькие латинские буквы,
+        не затронув остальных.</h3>
+
+    <script>
+
+        const str18 = 'aAXa aeffa aGha aza ax23a a3sSa';
+
+        const out18 = str18.replace(/a[a-z]+a/g, '!');
+
+        console.log(str18, ' - ', out18);
+
+
+    </script>
+    <hr>
+
 
 
 
