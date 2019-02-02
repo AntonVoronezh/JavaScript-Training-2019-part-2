@@ -233,6 +233,20 @@
     </script>
     <hr>
 
+    <h3>Задача 13. Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a', а между ними - буква от a до g </h3>
+
+    <script>
+
+        const str13 = 'a5a aea aca aza axa a.a a2a a7a';
+
+        const out13 = str13.replace(/a[a-g]a/g, '!');
+
+        console.log(str13, ' - ', out13);
+
+
+    </script>
+    <hr>
 
 
 
