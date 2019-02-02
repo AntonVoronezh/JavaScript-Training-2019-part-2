@@ -150,6 +150,23 @@
     <hr>
 
 
+    <h3>Задача 8. Дана строка 'ave a#b a2b a$b a4b a5b a-b acb'.
+        Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a' и 'b', а между ними - не буква и не цифра.</h3>
+
+    <script>
+
+        const str8 = 'ave a#b a2b a$b a4b a5b a-b acb';
+
+        const out8 = str8.replace(/a[^0-9a-zA-Z]b/g, '!');
+
+        console.log(str8, ' - ', out8);
+
+
+    </script>
+    <hr>
+
+
 
 
 
