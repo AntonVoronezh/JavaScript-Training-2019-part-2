@@ -447,7 +447,22 @@
 
 
 
+    <h3>Задача 25. Дана строка 'aeeea aeea aea axa axxa axxxa'.
+        Напишите регулярку, которая найдет строки следующего вида:
+        по краям стоят буквы 'a', а между ними - или буква 'e' два
+        раза или буква 'x' любое количество раз.</h3>
 
+    <script>
+
+        const str25 = 'aeeea aeea aea axa axxa axxxa';
+
+        const out25 = str25.replace(/a(e{2}|x*)a/g, '!');
+
+        console.log(str25, ' - ', out25);
+
+
+    </script>
+    <hr>
 
 
 
