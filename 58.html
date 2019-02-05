@@ -156,6 +156,36 @@
 
 
 
+    <h3>Задача 6. Дан элемент для перетягивания и принимающий див.
+        Сделайте так, чтобы при вхождении элемента в границы принимающего
+        дива в текст принимающего дива записывался '!', а при уходе - этот текст убирался.</h3>
+
+    <div class="div61 small" draggable="true"></div>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <div class="div62 big"></div>
+    <script>
+
+
+        const div61 = document.querySelector('.div61');
+        const div62 = document.querySelector('.div62');
+
+
+        div62.addEventListener('dragenter', (event) => {
+
+            div62.innerHTML = "1px dotted blue";
+
+        });
+
+        div62.addEventListener('dragleave', (event) => {
+
+            div62.innerHTML = "";
+
+        });
+
+    </script>
+    <hr>
+
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
