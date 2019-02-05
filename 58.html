@@ -101,6 +101,33 @@
     <h2>Принимающий элемент</h2>
 
 
+    <h3>Задача 4. Дан элемент для перетягивания и принимающий див.
+        Сделайте так, чтобы по дропу граница принимающего дива красилась в красный цвет.</h3>
+
+    <div class="div41 small" draggable="true"></div>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <div class="div42 big"></div>
+    <script>
+
+
+        const div41 = document.querySelector('.div41');
+        const div42 = document.querySelector('.div42');
+
+
+        div42.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+        });
+
+        div42.addEventListener('drop', (event) => {
+
+            div42.style.border = "1px solid red";
+
+        });
+
+    </script>
+    <hr>
 
 
 
