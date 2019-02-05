@@ -155,6 +155,70 @@
     <hr>
 
 
+    <h3>Задача 3. Дан набор элементов для перетягивания и набор принимающих дивов-панелек.
+        Сделайте так, чтобы элементы можно было перемещать на различные панельки.</h3>
+
+
+    <div class="panel  panel3">
+        <div class="small  small3" draggable="true">1111</div>
+        <div class="small  small3" draggable="true">2222</div>
+        <div class="small  small3" draggable="true">3333</div>
+        <div class="small  small3" draggable="true">4444</div>
+        <div class="small  small3" draggable="true">555</div>
+        <div class="small  small3" draggable="true">666</div>
+        <div class="small  small3" draggable="true">777</div>
+        <div class="small  small3" draggable="true">888</div>
+    </div>
+    <div class="parent  parent3"></div>
+    <div class="parent  parent3"></div>
+    <div class="parent  parent3"></div>
+
+
+
+    <script>
+
+        const parent3 = document.querySelectorAll('.parent3');
+        const elems3 = document.querySelectorAll('.small3');
+
+        elems3.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data3', i);
+
+            });
+
+        });
+
+
+        parent3.forEach(elem => {
+
+            elem.addEventListener('dragover', (event) => {
+
+                event.preventDefault();
+
+            });
+
+
+            elem.addEventListener('drop', (event) => {
+
+                elem.appendChild(elems3[event.dataTransfer.getData('data3')]);
+
+            });
+
+        });
+
+
+
+
+
+
+    </script>
+
+    <hr>
+
+
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
