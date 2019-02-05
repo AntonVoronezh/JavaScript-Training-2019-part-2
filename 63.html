@@ -104,6 +104,59 @@
     </script>
     <hr>
 
+    <h3>Задача 2. Пусть дан принимающий див. Предполагается, что этот див будет
+        осуществлять перемещение. Реализуйте соответствующий вид курсора.</h3>
+
+
+    <div class="panel  panel2">
+        <div class="small  small2" draggable="true">1111</div>
+        <div class="small  small2" draggable="true">2222</div>
+        <div class="small  small2" draggable="true">3333</div>
+        <div class="small  small2" draggable="true">4444</div>
+    </div>
+    <div class="parent  parent2"></div>
+
+
+
+    <script>
+
+        const parent2 = document.querySelector('.parent2');
+        const elems2 = document.querySelectorAll('.small2');
+
+        elems2.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data2', i);
+
+            });
+
+        });
+
+
+        parent2.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+            event.dataTransfer.dropEffect = 'move';
+
+        });
+
+
+        parent2.addEventListener('drop', (event) => {
+
+            parent2.appendChild(elems2[event.dataTransfer.getData('data2')]);
+
+        });
+
+
+
+
+    </script>
+    <hr>
+
+
+
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
