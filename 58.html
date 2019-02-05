@@ -186,7 +186,29 @@
     <hr>
 
 
-
+    <h3>Задача 7. Дан див для перетягивания и принимающий див. 
+        Сделайте так, чтобы в процессе перетягивания граница принимающего 
+        становилась не сплошной, а в виде точечек.</h3>
+    
+        <div class="div71 small" draggable="true"></div>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <div class="div72 big"></div>
+        <script>
+    
+    
+            const div71 = document.querySelector('.div71');
+            const div72 = document.querySelector('.div72');
+    
+    
+            div71.addEventListener('dragstart', (event) => {
+    
+                div72.style.border = "1px dotted blue";
+    
+            });
+    
+   
+        </script>
+        <hr>
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
