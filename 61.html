@@ -218,7 +218,61 @@
     <hr>
 
 
+    <h3>Задача 4. Дан набор элементов для перетягивания и принимающий див.
+        Сделайте так, чтобы дроп на принимающем диве приводил в удалению элемента.</h3>
 
+
+    <div class="panel  panel4">
+        <div class="small  small4" draggable="true">1111</div>
+        <div class="small  small4" draggable="true">2222</div>
+        <div class="small  small4" draggable="true">3333</div>
+        <div class="small  small4" draggable="true">4444</div>
+        <div class="small  small4" draggable="true">555</div>
+        <div class="small  small4" draggable="true">666</div>
+        <div class="small  small4" draggable="true">777</div>
+        <div class="small  small4" draggable="true">888</div>
+    </div>
+    <div class="parent  parent4"></div>
+
+
+
+
+    <script>
+
+        const parent4 = document.querySelector('.parent4');
+        const elems4 = document.querySelectorAll('.small4');
+
+
+        elems4.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data4', i);
+
+            });
+
+        });
+
+
+
+        parent4.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+        });
+
+
+        parent4.addEventListener('drop', (event) => {
+
+            parent4.appendChild(elems4[event.dataTransfer.getData('data4')]);
+
+            parent4.removeChild(parent4.firstChild);
+
+        });
+
+
+
+    </script>
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
