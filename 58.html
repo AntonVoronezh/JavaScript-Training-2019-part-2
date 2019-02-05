@@ -80,6 +80,29 @@
     <hr>
 
 
+    <h3>Задача 3. Дан див для перетягивания. Сделайте так, чтобы в процессе
+        перетягивания в консоль выводился '!' (каждый раз при срабатывании события).</h3>
+
+    <div class="div3 small" draggable="true"></div>
+    <script>
+
+        const div3 = document.querySelector('.div3');
+
+        div3.addEventListener('drag', (event) => {
+
+            console.log('!');
+
+
+        });
+
+    </script>
+    <hr>
+
+    <h2>Принимающий элемент</h2>
+
+
+
+
 
 
 
