@@ -157,6 +157,57 @@
 
 
 
+    <h3>Задача 3.Пусть дан принимающий див. Предполагается, что этот див будет осуществлять связывание данных.
+        Реализуйте соответствующий вид курсора.</h3>
+
+
+    <div class="panel  panel3">
+        <div class="small  small3" draggable="true">1111</div>
+        <div class="small  small3" draggable="true">2222</div>
+        <div class="small  small3" draggable="true">3333</div>
+        <div class="small  small3" draggable="true">4444</div>
+    </div>
+    <div class="parent  parent3"></div>
+
+
+
+    <script>
+
+        const parent3 = document.querySelector('.parent3');
+        const elems3 = document.querySelectorAll('.small3');
+
+        elems3.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data3', i);
+
+            });
+
+        });
+
+
+        parent3.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+            event.dataTransfer.dropEffect = 'link';
+
+        });
+
+
+        parent3.addEventListener('drop', (event) => {
+
+            parent3.appendChild(elems3[event.dataTransfer.getData('data3')]);
+
+        });
+
+
+
+
+    </script>
+    <hr>
+
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
