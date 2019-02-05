@@ -131,6 +131,28 @@
 
 
 
+    <h3>Задача 5. Дан элемент для перетягивания и принимающий див.
+        Сделайте так, чтобы при движении элемента над принимающем дивом
+        граница принимающего дива в виде точечек.</h3>
+
+    <div class="div51 small" draggable="true"></div>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <div class="div52 big"></div>
+    <script>
+
+
+        const div51 = document.querySelector('.div51');
+        const div52 = document.querySelector('.div52');
+
+
+        div52.addEventListener('dragenter', (event) => {
+
+            div52.style.border = "1px dotted blue";
+
+        });
+
+    </script>
+    <hr>
 
 
 
