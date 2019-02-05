@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000000;
+        }
+
+        .big {
+            border: 1px solid #000000;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>События Drag-and-Drop</h2>
+
+    <h2>Перетягиваемый элемент</h2>
+
+
+    <h3>Задача 1. Дан див для перетягивания. Сделайте так, чтобы в
+        момент начала перетягивания его граница красилась в красный цвет.</h3>
+
+    <div class="div1 small" draggable="true"></div>
+    <script>
+
+        const div1 = document.querySelector('.div1');
+
+        div1.addEventListener('dragstart', (event) => {
+
+            div1.style.border = "1px solid red";
+
+
+        });
+
+    </script>
+    <hr>
+
+    <h3>Задача 2. Дан див для перетягивания. Сделайте так, чтобы в момент
+        окончания перетягивания его граница красилась в зеленый цвет.</h3>
+
+    <div class="div2 small" draggable="true"></div>
+    <script>
+
+        const div2 = document.querySelector('.div2');
+
+        div2.addEventListener('dragend', (event) => {
+
+            div2.style.border = "1px solid green";
+
+
+        });
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 3. Дан див для перетягивания. Сделайте так, чтобы в процессе
+        перетягивания в консоль выводился '!' (каждый раз при срабатывании события).</h3>
+
+    <div class="div3 small" draggable="true"></div>
+    <script>
+
+        const div3 = document.querySelector('.div3');
+
+        div3.addEventListener('drag', (event) => {
+
+            console.log('!');
+
+
+        });
+
+    </script>
+    <hr>
+
+    <h2>Принимающий элемент</h2>
+
+
+    <h3>Задача 4. Дан элемент для перетягивания и принимающий див.
+        Сделайте так, чтобы по дропу граница принимающего дива красилась в красный цвет.</h3>
+
+    <div class="div41 small" draggable="true"></div>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <div class="div42 big"></div>
+    <script>
+
+
+        const div41 = document.querySelector('.div41');
+        const div42 = document.querySelector('.div42');
+
+
+        div42.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+        });
+
+        div42.addEventListener('drop', (event) => {
+
+            div42.style.border = "1px solid red";
+
+        });
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 5. Дан элемент для перетягивания и принимающий див.
+        Сделайте так, чтобы при движении элемента над принимающем дивом
+        граница принимающего дива в виде точечек.</h3>
+
+    <div class="div51 small" draggable="true"></div>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <div class="div52 big"></div>
+    <script>
+
+
+        const div51 = document.querySelector('.div51');
+        const div52 = document.querySelector('.div52');
+
+
+        div52.addEventListener('dragenter', (event) => {
+
+            div52.style.border = "1px dotted blue";
+
+        });
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 6. Дан элемент для перетягивания и принимающий див.
+        Сделайте так, чтобы при вхождении элемента в границы принимающего
+        дива в текст принимающего дива записывался '!', а при уходе - этот текст убирался.</h3>
+
+    <div class="div61 small" draggable="true"></div>
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+    <div class="div62 big"></div>
+    <script>
+
+
+        const div61 = document.querySelector('.div61');
+        const div62 = document.querySelector('.div62');
+
+
+        div62.addEventListener('dragenter', (event) => {
+
+            div62.innerHTML = "1px dotted blue";
+
+        });
+
+        div62.addEventListener('dragleave', (event) => {
+
+            div62.innerHTML = "";
+
+        });
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 7. Дан див для перетягивания и принимающий див. 
+        Сделайте так, чтобы в процессе перетягивания граница принимающего 
+        становилась не сплошной, а в виде точечек.</h3>
+    
+        <div class="div71 small" draggable="true"></div>
+        <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        <div class="div72 big"></div>
+        <script>
+    
+    
+            const div71 = document.querySelector('.div71');
+            const div72 = document.querySelector('.div72');
+    
+    
+            div71.addEventListener('dragstart', (event) => {
+    
+                div72.style.border = "1px dotted blue";
+    
+            });
+    
+   
+        </script>
+        <hr>
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

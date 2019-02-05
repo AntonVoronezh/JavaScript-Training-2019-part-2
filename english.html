@@ -12,6 +12,10 @@
             height: 100vh;
             padding: 0;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         .eng {
@@ -23,7 +27,7 @@
             align-items: center;
         }
 
-        .eng__adjectives {
+        .eng__adjectives, .eng__substantive {
             border: 1px solid #ccc;
             padding: 10px;
             font-size: 20px;
@@ -33,14 +37,14 @@
             justify-content: center;
         }
 
-        .eng__adjectives-wrap {
+        .eng__adjectives-wrap, .eng__substantive-wrap {
             display: flex;
             align-items: center;
             flex-direction: column;
             justify-content: center;
         }
 
-        .eng__adjectives-title {
+        .eng__adjectives-title, .eng__substantive-title {
             width: 300px;
             display: flex;
             justify-content: center;
@@ -52,7 +56,7 @@
             text-decoration: none;
         }
 
-        .eng__adj-btn {
+        .eng__adj-btn, .eng__sub-btn {
             padding: 5px;
             margin: 5px;
             margin-left: 10px;
@@ -72,11 +76,75 @@
         .none {
             display: none;
         }
+        .eng__text-adj-check-result, .eng__text-sub-check-result {
+            margin-right: 5px;
+            margin-left: 5px;
+             color: green;
+        }
+        .red {
+            color: red;
+        }
+        .green {
+            /* color: green; */
+        }
     </style>
 </head>
 
 <body>
 
+    <div class="eng">
+        <div class="eng__substantive">
+            <div class="eng__substantive-title">
+                substantive / существительные
+            </div>
+            <div class="eng__substantive-wrap">
+                <div class="eng__wrap">
+                    <p class="eng__text  eng__text--sub-eng"><b></b></p>
+                    <p class="eng__text  eng__text--sub-rus"><b></b></p>
+                    <input type="text" class="eng__input  eng__input--sub  none">
+                    <p class="eng__text-sub-check-result"></p>
+                    <button class="eng__btn-sub-check  none">проверить</button>
+                    <button class="eng__btn-sub-show  none">показать</button>
+                </div>
+
+
+                <div class="eng__wrap  eng__wrap--flex">
+                    <div class="eng__wrap">
+                        <span>
+                            <input type="radio" name="sub1" class="eng__sub-radio  eng__sub-radio--rand" checked>
+                            случайно
+                        </span>
+                        <span>
+                            <input type="radio" name="sub1" class="eng__sub-radio  eng__sub-radio--num">
+                            по порядку
+                        </span>
+                    </div>
+                    <div class="eng__wrap">
+
+                        <span>
+                            <input type="radio" name="sub2" class="eng__sub-radio  eng__sub-radio--eng" checked>
+                            eng
+                        </span>
+                        <span>
+                            <input type="radio" name="sub2" class="eng__sub-radio  eng__sub-radio--rus">
+                            рус
+                        </span>
+                        <span>
+                            <input type="checkbox" name="sub3" class="eng__sub-radio  eng__sub-checkbox">
+                            правопис
+                        </span>
+                    </div>
+
+                    <button class="eng__sub-btn">новое слово</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!--  -->
     <div class="eng">
         <div class="eng__adjectives">
             <div class="eng__adjectives-title">
@@ -87,6 +155,9 @@
                     <p class="eng__text  eng__text--adj-eng"><b></b></p>
                     <p class="eng__text  eng__text--adj-rus"><b></b></p>
                     <input type="text" class="eng__input  eng__input--adj  none">
+                    <p class="eng__text-adj-check-result  green"></p>
+                    <button class="eng__btn-adj-check  none">проверить</button>
+                    <button class="eng__btn-adj-show  none">показать</button>
                 </div>
 
 
@@ -125,6 +196,10 @@
     </div>
 
 
+
+
+
+
     <script>
 
         const adjEng = document.querySelector('.eng__text--adj-eng');
@@ -136,62 +211,149 @@
         const adjRadioNum = document.querySelector('.eng__adj-radio--num');
         const adjCheckbox = document.querySelector('.eng__adj-checkbox');
         const adjInput = document.querySelector('.eng__input--adj');
+        const adjBtnSpell = document.querySelector('.eng__btn-adj-check');
+        const adjBtnSpellShow = document.querySelector('.eng__btn-adj-show');
+        const adjCheckResult = document.querySelector('.eng__text-adj-check-result');
+
+        const subEng = document.querySelector('.eng__text--sub-eng');
+        const subRus = document.querySelector('.eng__text--sub-rus');
+        const subBtn = document.querySelector('.eng__sub-btn');
+        const subRadioEng = document.querySelector('.eng__sub-radio--eng');
+        const subRadioRus = document.querySelector('.eng__sub-radio--rus');
+        const subRadioRand = document.querySelector('.eng__sub-radio--rand');
+        const subRadioNum = document.querySelector('.eng__sub-radio--num');
+        const subCheckbox = document.querySelector('.eng__sub-checkbox');
+        const subInput = document.querySelector('.eng__input--sub');
+        const subBtnSpell = document.querySelector('.eng__btn-sub-check');
+        const subBtnSpellShow = document.querySelector('.eng__btn-sub-show');
+        const subCheckResult = document.querySelector('.eng__text-sub-check-result');
+
+
+        let adjNum = 0;
+        let adjSub = 0;
 
 
         const adjObj = {
 
             arr: getAdjectives(),
             inp: adjInput,
-            peng: adjEng,
-            prus: adjRus,
-            radeng: adjRadioEng,
-            radrus: adjRadioRus,
-            radran: adjRadioRand,
-            radnum: adjRadioNum,
-            chec: adjCheckbox
-            
+            pEng: adjEng,
+            pRus: adjRus,
+            radEng: adjRadioEng,
+            radRus: adjRadioRus,
+            radRan: adjRadioRand,
+            radNum: adjRadioNum,
+            chec: adjCheckbox,
+            btnSpell: adjBtnSpell,
+            btnSpellShow: adjBtnSpellShow,
+            checRes: adjCheckResult,
+            count: () => adjNum++
         };
 
+        const subObj = {
 
-        // console.log(getAdjectives());
+            arr: getSubstantives(),
+            inp: subInput,
+            pEng: subEng,
+            pRus: subRus,
+            radEng: subRadioEng,
+            radRus: subRadioRus,
+            radRan: subRadioRand,
+            radNum: subRadioNum,
+            chec: subCheckbox,
+            btnSpell: subBtnSpell,
+            btnSpellShow: subBtnSpellShow,
+            checRes: subCheckResult,
+            count: () => adjSub++
+        };
+
 
 
         adjBtn.addEventListener('click', () => addWords(adjObj));
 
+        subBtn.addEventListener('click', () => addWords(subObj));
 
 
-        let adjNum = 0;
 
         function addWords(argObj) {
 
-            const { arr, inp, peng, prus, radeng, radrus, radran, radnum, chec } = argObj;
+            const { arr, inp, pEng, pRus, radEng, radRus, radRan, radNum, chec, btnSpell, btnSpellShow, checRes, count } = argObj;
 
-            const [eng, rus] = getWords(radran, radnum, arr);
+            const [eng, rus] = getWords(radRan, radNum, arr, count);
 
-            checkSpell(chec, inp);
+            checkSpell(chec, inp, btnSpell, btnSpellShow, checRes, eng, rus);
 
-            selectLang(radeng, radrus, eng, rus, peng, prus);
+            selectLang(radEng, radRus, eng, rus, pEng, pRus);
+
+            cleanFields(checRes, inp);
 
         };
 
 
-        function checkSpell(argCheck, argElem) {
+        function checkSpell(argCheck, argInp, argBtn, argBtn2, argRes, argWord1, argWord2) {
 
             if (argCheck.checked) {
 
-                argElem.classList.remove('none');
+                argInp.classList.remove('none');
+                argBtn.classList.remove('none');
+                argBtn2.classList.remove('none');
+                argRes.classList.remove('none');
 
             } else {
 
-                argElem.classList.add('none');
+                argInp.classList.add('none');
+                argBtn.classList.add('none');
+                argBtn2.classList.add('none');
+                argRes.classList.add('none');
 
             }
 
-            console.log(argElem.value);
-            
+            argBtn.addEventListener('click', () => {
 
+                argRes.classList.remove('red');
+
+                if (checkWords(argInp.value, argWord1) || checkWords(argInp.value, argWord2)) {
+
+                    argRes.innerHTML = 'YES';
+
+                } else {
+
+                    argRes.innerHTML = 'NO';
+
+                    argRes.classList.add('red');
+
+                }
+
+            });
+
+
+            argBtn2.addEventListener('click', () => {
+
+                argInp.value = '';
+
+                argInp.value = argWord1 + ' ' + argWord2;
+
+            });
 
         };
+
+
+        function cleanFields(argElem, argInp) {
+
+            argElem.classList.remove('red');
+
+            argElem.innerHTML = '';
+
+            argInp.value = '';
+
+        };
+
+        function checkWords(argStr1, argStr2) {
+
+            return argStr1 === argStr2;
+
+        };
+
 
 
         function selectLang(argRadio1, argRadio2, argLang1, argLang2, argElem1, argElem2) {
@@ -216,7 +378,7 @@
         };
 
 
-        function getWords(argRan, argNum, argArr) {
+        function getWords(argRan, argNum, argArr, argCount) {
 
             let result;
 
@@ -228,9 +390,7 @@
 
             if (argNum.checked) {
 
-                result = argArr[adjNum];
-
-                adjNum++;
+                result = argArr[argCount()];
 
             }
 
@@ -239,16 +399,9 @@
         };
 
 
-        function checkWords(argStr1, argStr2) {
-
-            return argStr1 === argStr2;
-
-        };
-
-
         function getRandWord(argArr) {
 
-            const rand = getRandomInt(0, argArr.length);
+            const rand = getRandomInt(0, argArr.length - 1);
 
             return argArr[rand];
 
@@ -263,25 +416,58 @@
         };
 
 
-
         function getAdjectives() {
 
-            const adjectives = [
-                ['hardworking', 'трудолюбивый'], ['lazy', 'ленивый'], ['sad', 'грустный'], ['happy', 'счастливый'],
-                ['busy', 'занятой'], ['tired', 'уставший'], ['upset', 'расстроенный'], ['shy', 'застенчивый'],
-                ['rich', 'богатый'], ['healthy', 'здоровый'], ['punctual', 'пунктуальный'], ['curios', 'любопытный'],
-                ['interesting', 'интересный'], ['fun', 'веселый'], ['rude', 'грубый'],
-                // [,], [,], [,], [,], [,], [,],
-                // [,], [,], [,], [,], [,], [,],
-            ];
+            let result = [];
 
-            // console.log(adjectives);
-            return adjectives;
+            readTextFile("./adj.txt", parseTxt, result);
+
+            return result;
 
         };
 
 
+        function getSubstantives() {
 
+            let result = [];
+
+            readTextFile("./sub.txt", parseTxt, result);
+
+            return result;
+
+        };
+
+
+        function readTextFile(file, callback, result) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType("text/html");
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                    callback(rawFile.responseText, result);
+                }
+            }
+            rawFile.send(null);
+            // Эта функция также работает для загрузки файлов .html или .txt 
+            // путем переопределения параметра типа mime на "text/html", "text/plain" и т.д.
+            // application/json
+        }
+
+
+
+        function parseTxt(argTxt, argResult) {
+
+            const data = argTxt.split(',');
+
+            data.forEach(elem => {
+
+                let out = elem.trim().split(':');
+
+                argResult.push([out[0].trim(), out[1].trim()]);
+
+            });
+
+        };
 
     </script>
 

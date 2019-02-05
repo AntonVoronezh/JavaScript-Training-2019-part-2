@@ -1,0 +1,9 @@
+﻿husband:муж,
+wife:жена,
+relatives:родственники,
+brother:брат,
+sister:сестра,
+mother:мама,
+mom:мама,
+dad:папа,
+father:папа

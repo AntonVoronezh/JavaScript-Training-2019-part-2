@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Вид курсора при перетягивании</h2>
+
+    <h3>Задача 1. усть дан принимающий див. Предполагается, что этот див
+        будет осуществлять копирование. Реализуйте соответствующий вид курсора.</h3>
+
+
+    <div class="panel  panel1">
+        <div class="small  small1" draggable="true">1111</div>
+        <div class="small  small1" draggable="true">2222</div>
+        <div class="small  small1" draggable="true">3333</div>
+        <div class="small  small1" draggable="true">4444</div>
+    </div>
+    <div class="parent  parent1"></div>
+
+
+
+    <script>
+
+        const parent1 = document.querySelector('.parent1');
+        const elems1 = document.querySelectorAll('.small1');
+
+        elems1.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data1', i);
+
+            });
+
+        });
+
+
+        parent1.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+            event.dataTransfer.dropEffect = 'copy';
+
+        });
+
+
+        parent1.addEventListener('drop', (event) => {
+
+            parent1.appendChild(elems1[event.dataTransfer.getData('data1')]);
+
+        });
+
+
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 2. Пусть дан принимающий див. Предполагается, что этот див будет
+        осуществлять перемещение. Реализуйте соответствующий вид курсора.</h3>
+
+
+    <div class="panel  panel2">
+        <div class="small  small2" draggable="true">1111</div>
+        <div class="small  small2" draggable="true">2222</div>
+        <div class="small  small2" draggable="true">3333</div>
+        <div class="small  small2" draggable="true">4444</div>
+    </div>
+    <div class="parent  parent2"></div>
+
+
+
+    <script>
+
+        const parent2 = document.querySelector('.parent2');
+        const elems2 = document.querySelectorAll('.small2');
+
+        elems2.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data2', i);
+
+            });
+
+        });
+
+
+        parent2.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+            event.dataTransfer.dropEffect = 'move';
+
+        });
+
+
+        parent2.addEventListener('drop', (event) => {
+
+            parent2.appendChild(elems2[event.dataTransfer.getData('data2')]);
+
+        });
+
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 3.Пусть дан принимающий див. Предполагается, что этот див будет осуществлять связывание данных.
+        Реализуйте соответствующий вид курсора.</h3>
+
+
+    <div class="panel  panel3">
+        <div class="small  small3" draggable="true">1111</div>
+        <div class="small  small3" draggable="true">2222</div>
+        <div class="small  small3" draggable="true">3333</div>
+        <div class="small  small3" draggable="true">4444</div>
+    </div>
+    <div class="parent  parent3"></div>
+
+
+
+    <script>
+
+        const parent3 = document.querySelector('.parent3');
+        const elems3 = document.querySelectorAll('.small3');
+
+        elems3.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data3', i);
+
+            });
+
+        });
+
+
+        parent3.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+            event.dataTransfer.dropEffect = 'link';
+
+        });
+
+
+        parent3.addEventListener('drop', (event) => {
+
+            parent3.appendChild(elems3[event.dataTransfer.getData('data3')]);
+
+        });
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 4. Пусть дан принимающий див. Предполагается, что на этот див 
+        нельзя выполнить дроп. Реализуйте соответствующий вид курсора.</h3>
+    
+    
+        <div class="panel  panel4">
+            <div class="small  small4" draggable="true">1111</div>
+            <div class="small  small4" draggable="true">2222</div>
+            <div class="small  small4" draggable="true">3333</div>
+            <div class="small  small4" draggable="true">4444</div>
+        </div>
+        <div class="parent  parent4"></div>
+    
+    
+    
+        <script>
+    
+            const parent4 = document.querySelector('.parent4');
+            const elems4 = document.querySelectorAll('.small4');
+    
+            elems4.forEach((elem, i) => {
+    
+                elem.addEventListener('dragstart', (event) => {
+    
+                    event.dataTransfer.setData('data4', i);
+    
+                });
+    
+            });
+    
+    
+            parent4.addEventListener('dragover', (event) => {
+    
+                event.preventDefault();
+    
+                event.dataTransfer.dropEffect = 'none';
+    
+            });
+    
+    
+            parent4.addEventListener('drop', (event) => {
+    
+                parent4.appendChild(elems4[event.dataTransfer.getData('data4')]);
+    
+            });
+    
+    
+    
+    
+        </script>
+        <hr>
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
