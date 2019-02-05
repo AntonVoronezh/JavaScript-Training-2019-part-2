@@ -209,6 +209,57 @@
     <hr>
 
 
+    <h3>Задача 4. Пусть дан принимающий див. Предполагается, что на этот див 
+        нельзя выполнить дроп. Реализуйте соответствующий вид курсора.</h3>
+    
+    
+        <div class="panel  panel4">
+            <div class="small  small4" draggable="true">1111</div>
+            <div class="small  small4" draggable="true">2222</div>
+            <div class="small  small4" draggable="true">3333</div>
+            <div class="small  small4" draggable="true">4444</div>
+        </div>
+        <div class="parent  parent4"></div>
+    
+    
+    
+        <script>
+    
+            const parent4 = document.querySelector('.parent4');
+            const elems4 = document.querySelectorAll('.small4');
+    
+            elems4.forEach((elem, i) => {
+    
+                elem.addEventListener('dragstart', (event) => {
+    
+                    event.dataTransfer.setData('data4', i);
+    
+                });
+    
+            });
+    
+    
+            parent4.addEventListener('dragover', (event) => {
+    
+                event.preventDefault();
+    
+                event.dataTransfer.dropEffect = 'none';
+    
+            });
+    
+    
+            parent4.addEventListener('drop', (event) => {
+    
+                parent4.appendChild(elems4[event.dataTransfer.getData('data4')]);
+    
+            });
+    
+    
+    
+    
+        </script>
+        <hr>
+
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
 
