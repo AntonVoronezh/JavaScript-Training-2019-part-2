@@ -61,6 +61,26 @@
     </script>
     <hr>
 
+    <h3>Задача 2. Дан див для перетягивания. Сделайте так, чтобы в момент
+        окончания перетягивания его граница красилась в зеленый цвет.</h3>
+
+    <div class="div2 small" draggable="true"></div>
+    <script>
+
+        const div2 = document.querySelector('.div2');
+
+        div2.addEventListener('dragend', (event) => {
+
+            div2.style.border = "1px solid green";
+
+
+        });
+
+    </script>
+    <hr>
+
+
+
 
 
 
