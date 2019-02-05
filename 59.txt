@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000000;
+            position: absolute;
+            top: 200px;
+            left: 30px;
+        }
+
+        .big {
+            border: 1px solid #000000;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>События Drag-and-Drop</h2>
+
+    <h2>Повтор видео</h2>
+
+
+
+    <div class="div1 small" draggable="true">dkgmdfpgksd</div>
+    <script>
+
+        const div1 = document.querySelector('.div1');
+
+        let offsetX, offsetY;
+
+
+        div1.addEventListener('dragstart', (event) => {
+
+            offsetX = event.offsetX;
+
+            offsetY = event.offsetY;
+
+        });
+
+
+        div1.addEventListener('dragend', (event) => {
+
+            div1.style.top = `${event.pageY - offsetY}px`;
+
+            div1.style.left = `${event.pageX - offsetX}px`;
+
+        });
+
+    </script>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

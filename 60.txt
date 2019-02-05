@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Перемещение одного элемента на другой </h2>
+
+    <h2>Повтор видео</h2>
+
+
+    <div class="panel">
+        <div class="small" draggable="true">1111</div>
+        <div class="small" draggable="true">2222</div>
+        <div class="small" draggable="true">3333</div>
+        <div class="small" draggable="true">4444</div>
+    </div>
+    <div class="parent"></div>
+
+
+
+    <script>
+
+        const parent = document.querySelector('.parent');
+        const elems = document.querySelectorAll('.small');
+
+        let current;
+
+        elems.forEach(elem=> {
+
+            elem.addEventListener('dragstart', function() {
+
+                current = this;
+
+            });
+
+        });
+
+
+        parent.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+        });
+
+
+        parent.addEventListener('drop', () => {
+
+            parent.appendChild(current);
+
+        });
+
+
+
+
+    </script>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
