@@ -530,6 +530,56 @@
 
 
 
+    <h3>Задача 11. Пусть по заходу на страницу показывается определенный
+        рекламный текст. Рядом с ним сделайте кнопку 'убрать', по нажатию
+        на которую этот рекламный текст не показывается этому пользователю
+        ровно один день</h3>
+
+    <div class="adv">
+        <img src="http://code.mu/images/mr-koder/relax.png" class="img11">
+        <button class="btn11">X</button>
+    </div>
+
+    <script>
+        const btn11 = document.querySelector('.btn11');
+        const img11 = document.querySelector('.img11');
+
+        if (getCookie('expires')) {
+
+            btn11.style.display = 'none';
+
+            img11.style.display = 'none';
+
+        } else {
+
+            btn11.style.display = 'block';
+
+            img11.style.display = 'block';
+
+            btn11.addEventListener('click', function () {
+
+                date = new Date();
+
+                date.setDate(date.getDate() + 1);
+
+                date =  date.toUTCString();
+
+                document.cookie = 'expires=' + date;
+
+                btn11.style.display = 'none';
+
+                img11.style.display = 'none';
+
+            });
+
+        }
+
+
+
+
+
+
+    </script>
 
 
 
