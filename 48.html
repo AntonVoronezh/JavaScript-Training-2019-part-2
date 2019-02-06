@@ -477,6 +477,59 @@
 
 
 
+    <h3>Задача 10. Дан сайт. Пусть каждая страница для каждого посетителя хранит время
+        последнего захода и количество заходов на нее этим посетителем.
+        Пусть эти данные показываются при заходе в формате 'с последнего захода прошло
+        ... вы посещали эту страницу ... раз'.</h3>
+
+
+    <p class="p10"></p>
+
+    <script>
+
+
+        const p10 = document.querySelector('.p10');
+
+
+        window.addEventListener('load', function () {
+
+            const date = new Date();
+
+            if (getCookie('count')) {
+
+                document.cookie = 'count=' + (+getCookie('count') + 1);
+
+                p10.innerHTML = `вы посещали эту страницу ${getCookie('count')} раз.`;
+
+            } else {
+
+                document.cookie = 'count=1';
+
+            }
+
+            if (getCookie('time')) {
+
+                const diff = (date.getTime() - +getCookie('time')) / 1000;
+
+                document.cookie = 'time=' + date.getTime();
+
+                p10.innerHTML += ` с последнего захода прошло ${diff} сек.`;
+
+            } else {
+
+                document.cookie = 'time=' + date.getTime();
+
+            }
+
+
+        });
+
+        console.log(getCookie('count'), getCookie('time'));
+    </script>
+    <hr>
+
+
+
 
 
 
