@@ -132,6 +132,82 @@
     <hr>
 
 
+    <h3>Задача 4. При заходе на страницу спросите с помощью инпута день рождения пользователя.
+        Когда он зайдет с следующий раз - напишите сколько месяцев, дней, часов, минут и
+        секунд осталось до его дня рождения. И пусть по этим числам запуститься обратный
+        отсчет (то есть они будут тикать).</h3>
+
+    <input type="text" class="inp4" placeholder="21.02.2000">
+    <table>
+        <tr>
+            <td id="hours"></td>
+            <td id="minutes"></td>
+            <td id="seconds"></td>
+        </tr>
+    </table>
+
+    <script>
+        const inp4 = document.querySelector('.inp4');
+        const p4 = document.querySelector('.p4');
+
+
+
+        window.addEventListener('load', () => {
+
+            go();
+
+        });
+
+        let birthday = [];
+
+        inp4.addEventListener('blur', function () {
+
+            const arrVal = this.value.split('.');
+
+            document.cookie = 'day=' + arrVal[0];
+            document.cookie = 'month=' + arrVal[1];
+            document.cookie = 'year=' + arrVal[2];
+
+        });
+
+        console.log(getCookie('day'), getCookie('month'), getCookie('year'));
+
+        function go() {
+
+
+            window.timerId = window.setInterval(function () {
+
+                timer(getCookie('year'), getCookie('month'), getCookie('day'))
+
+            }, 1000);
+        };
+
+
+        function timer(arg1, arg2, arg3) {
+            var seconds = document.getElementById('seconds');
+            var minutes = document.getElementById('minutes');
+            var hours = document.getElementById('hours');
+            var now = new Date();
+            var midnight = new Date(arg1, arg2, arg3);
+            var diff = Math.floor((midnight - now) / 1000);//разница в милисекундах, перевели в секунды
+            var hoursRemain = Math.floor(diff / (60 * 60));
+            var minutesRemain = Math.floor((diff - hoursRemain * 60 * 60) / 60);
+            var secondsRemain = Math.floor(diff % 60);
+            hours.innerHTML = hoursRemain;
+            minutes.innerHTML = addZero(minutesRemain);
+            seconds.innerHTML = addZero(secondsRemain);
+        };
+        function addZero(num) {
+            if (num <= 9) return '0' + num;
+            else return num;
+        };
+
+
+    </script>
+    <hr>
+
+
+
 
 
 
