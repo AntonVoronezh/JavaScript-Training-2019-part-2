@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Основы работы с ООП в JavaScript</h2>
+
+    <h3>Видео 1. </h3>
+
+    <script>
+
+        class User1 {
+
+            getFullName() {
+
+                return `${this.name} ${this.surname}`;
+
+            }
+
+        };
+
+        const user1 = new User1;
+
+        user1.name = 'ffffff';
+
+        user1.surname = '777777';
+
+        console.log(user1.getFullName());
+
+
+    </script>
+    <hr>
+
+
+    <h3>Видео 2. </h3>
+
+    <script>
+
+        class User2 {
+
+            constructor(argName, argSurname) {
+
+                this.name = argName;
+
+                this.surname = argSurname;
+
+            }
+
+            getFullName() {
+
+                return `${this.name} ${this.surname}`;
+
+            }
+
+        };
+
+        const user2 = new User2('Петр', 'Иванов');
+
+        user2.name = 'ffsssfff';
+
+        // user1.surname = '777777';
+
+        console.log(user2.getFullName());
+
+
+    </script>
+    <hr>
+
+
+    <h3>Видео 3. </h3>
+
+    <script>
+
+        class User3 {
+
+            constructor(argName, argSurname) {
+
+                this._name = argName;
+
+                this._surname = argSurname;
+
+            }
+
+            getFullName() {
+
+                return `${this._name} ${this._surname}`;
+
+            }
+
+            getName() {
+
+                return this._name;
+
+            }
+
+        };
+
+        const user3 = new User3('Петрo', 'Иванович');
+
+
+        console.log(user3.getName());
+
+        console.log(user3.getFullName());
+
+
+    </script>
+    <hr>
+
+
+    <h3>Видео 4. </h3>
+
+    <script>
+
+        class User4 {
+
+            constructor(argName, argSurname) {
+
+                this._name = argName;
+
+                this._surname = argSurname;
+
+                this._age = 12;
+
+            }
+
+            getFullName() {
+
+                return `${this._name} ${this._surname}`;
+
+            }
+
+            getName() {
+
+                return this._name;
+
+            }
+
+            setAge(argAge) {
+
+                if (argAge > 0 && argAge < 100) {
+
+                    this._age = argAge;
+
+                }
+
+            }
+
+            getAge() {
+
+                return this._age;
+
+            }
+
+        };
+
+        const user4 = new User4('Петрo', 'Иванович');
+
+
+        console.log(user4.setAge(40));
+
+        console.log('getAge', user4.getAge());
+
+
+    </script>
+    <hr>
+
+    <h3>Видео 5. </h3>
+
+    <script>
+
+        class User5 {
+
+            constructor(argName, argSurname) {
+
+                this._name = argName;
+
+                this._surname = argSurname;
+
+                this._age = 12;
+
+            }
+
+            getFullName() {
+
+                return `${this._name} ${this._surname}`;
+
+            }
+
+            getName() {
+
+                return this._name;
+
+            }
+
+            setAge(argAge) {
+
+                if (this._checkAge(argAge)) {
+
+                    this._age = argAge;
+
+                }
+
+            }
+
+            _checkAge(argAge) {
+
+                if (argAge > 0 && argAge < 100) {
+
+                    return true;
+
+                } else {
+
+                    return false;
+
+                }
+
+            }
+
+            getAge() {
+
+                return this._age;
+
+            }
+
+        };
+
+        const user5 = new User4('Петрo', 'Иванович');
+
+
+        console.log(user5.setAge(40));
+
+        console.log('getAge', user5.getAge());
+
+
+    </script>
+    <hr>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>

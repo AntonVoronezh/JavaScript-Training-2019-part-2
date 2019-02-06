@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на работу с JSON</h2>
+
+
+    <h3>Задача 1. Дана JSON строка '["Коля", "Вася", "Петя"]'.
+        Преобразуйте ее в массив JavaScript и выведите на экран элемент "Петя".</h3>
+
+    <script>
+
+        const json1 = '["Коля", "Вася", "Петя"]';
+
+        const res1 = JSON.parse(json1);
+
+        console.log(res1[2]);
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 2. Дан объект {a: 'aaa', b: 'bbb'}. Преобразуйте его в JSON</h3>
+
+    <script>
+
+        const obj2 = { a: 'aaa', b: 'bbb' };
+
+        const res2 = JSON.stringify(obj2);
+
+        console.log(res2);
+
+
+    </script>
+    <hr>
+
+
+    <h2>Задачи на работу с куки (cookie) </h2>
+
+
+    <h3>Задача 1. Установите куку с именем 'name' и значением 'Иван'.
+        Выведите содержимое этой куки на экран</h3>
+
+    <script>
+
+        document.cookie = 'name=ffffff';
+
+
+        function getCookie(c_name) {
+            if (document.cookie.length > 0) {
+                c_start = document.cookie.indexOf(c_name + "=");
+                if (c_start != -1) {
+                    c_start = c_start + c_name.length + 1;
+                    c_end = document.cookie.indexOf(";", c_start);
+                    if (c_end == -1) c_end = document.cookie.length;
+                    return unescape(document.cookie.substring(c_start, c_end));
+                }
+            }
+            return "";
+        }
+
+        console.log(getCookie('name'));
+
+
+    </script>
+    <hr>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
