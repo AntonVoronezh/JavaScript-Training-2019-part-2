@@ -443,6 +443,40 @@
     <hr>
 
 
+    <h3>Задача 9. Дан инпут. В него можно ввести данные, затем поредактировать их,
+        затем еще поредактировать. Пусть инпут хранит историю своих изменений
+        (даже после перезагрузки страницы). Сверху над инпутом должны появится стрелочки,
+        с помощью которых можно перемещаться по истории</h3>
+
+
+    <input type="text" class="inp9"></input>
+
+    <script>
+
+
+        const inp9 = document.querySelector('.inp9');
+
+        inp9.addEventListener('blur', function () {
+
+            if (getCookie('inp9')) {
+
+                document.cookie = 'inp9=' + getCookie('inp9') + '*' + inp9.value;
+
+            } else {
+
+                document.cookie = 'inp9=' + inp9.value;
+
+            }
+
+        });
+
+        console.log(getCookie('inp9'));
+
+
+    </script>
+
+
+
 
 
 
