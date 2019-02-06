@@ -207,6 +207,55 @@
     <hr>
 
 
+    <h3>Задача 5. Дана форма с инпутами. Пользователь вводит какие-то данные и
+        закрывает страницу (не факт, что он заполнил всю форму). Сделайте так,
+        чтобы при следующем заходе на страницу введенные им ранее данные стояли на своих местах</h3>
+
+    <input type="text" class="inp41">
+    <input type="text" class="inp42">
+    <input type="text" class="inp43">
+
+    <script>
+        const inp41 = document.querySelector('.inp41');
+        const inp42 = document.querySelector('.inp42');
+        const inp43 = document.querySelector('.inp43');
+
+
+        inp41.addEventListener('blur', () => {
+
+            document.cookie = 'inp41=' + inp41.value;
+
+        });
+
+        inp42.addEventListener('blur', () => {
+
+            document.cookie = 'inp42=' + inp42.value;
+
+        });
+
+        inp43.addEventListener('blur', () => {
+
+            document.cookie = 'inp43=' + inp43.value;
+
+        });
+
+        window.addEventListener('load', function () {
+
+            inp41.value = getCookie('inp41');
+            inp42.value = getCookie('inp42');
+            inp43.value = getCookie('inp43');
+
+
+        });
+
+        console.log(getCookie('inp41'));
+
+
+
+    </script>
+    <hr>
+
+
 
 
 
