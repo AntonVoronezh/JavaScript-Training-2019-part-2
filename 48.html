@@ -391,6 +391,56 @@
 
 
 
+    <h3>Задача 8. Дан тектареа. Пользователь может потянуть за его угол и
+        изменить его размер. Сделайте так, чтобы при следующем заходе на страницу,
+        текстареа был заданного размера.</h3>
+
+
+    <textarea class="t10"></textarea>
+
+    <script>
+
+
+        const t10 = document.querySelector('.t10');
+
+
+
+        window.onunload = function () {
+
+            document.cookie = 'width=' + t10.offsetWidth;
+
+            document.cookie = 'height=' + t10.offsetHeight;
+
+
+        };
+
+        console.log(getCookie('width'), getCookie('height'));
+
+
+        window.addEventListener('load', function () {
+
+
+            if (getCookie('width')) {
+
+                t10.style.width = getCookie('width') + 'px';
+
+            }
+
+            if (getCookie('height')) {
+
+                t10.style.height = getCookie('height') + 'px';
+
+            }
+
+
+        });
+
+
+
+
+    </script>
+
+    <hr>
 
 
 
