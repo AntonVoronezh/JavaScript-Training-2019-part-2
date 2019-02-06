@@ -257,6 +257,88 @@
 
 
 
+    <h3>Задача 6. Даны чекбоксы. Пользователь произвольно отмечает их и закрывает страницу.
+        Сделайте так, чтобы при следующем заходе на страницу чекбоксы стали отмеченными
+        так, как это сделал пользователь ранее.</h3>
+
+
+    <input type="checkbox" class="inp61">
+    <input type="checkbox" class="inp62">
+    <input type="checkbox" class="inp63">
+
+
+    <script>
+        const inp61 = document.querySelector('.inp61');
+        const inp62 = document.querySelector('.inp62');
+        const inp63 = document.querySelector('.inp63');
+
+
+        inp61.addEventListener('blur', () => {
+
+            if (inp61.checked) {
+
+                document.cookie = 'inp61=true';
+
+            }
+
+        });
+
+        inp62.addEventListener('blur', () => {
+
+            if (inp62.checked) {
+
+                document.cookie = 'inp62=true';
+
+            }
+
+        });
+
+        inp63.addEventListener('blur', () => {
+
+            if (inp63.checked) {
+
+                document.cookie = 'inp63=true';
+
+            }
+
+        });
+
+        window.addEventListener('load', function () {
+
+            if (getCookie('inp61')) {
+
+                inp61.checked = true;
+
+            }
+
+
+            if (getCookie('inp62')) {
+
+                inp62.checked = true;
+
+            }
+
+
+            if (getCookie('inp63')) {
+
+                inp63.checked = true;
+
+            }
+
+
+        });
+
+        console.log(getCookie('inp61'));
+
+
+
+    </script>
+    <hr>
+
+
+
+
+
 
 
 
