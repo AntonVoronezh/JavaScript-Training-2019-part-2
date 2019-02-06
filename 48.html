@@ -103,6 +103,33 @@
 
 
 
+    <h3>Задача 3. Дан инпут. Ведите в него город, например, Минск.
+        Сохраните его в куки. Зайдя на другую страницу сайта вы должны увидеть
+        фразу 'ваш город - Минск'.</h3>
+
+    <input type="text" class="inp3">
+    <p class="p3"></p>
+
+    <script>
+        const inp3 = document.querySelector('.inp3');
+        const p3 = document.querySelector('.p3');
+
+
+
+        inp3.addEventListener('blur', () => {
+
+            console.log(inp3.value);
+
+
+            document.cookie = 'path=/; domain=.127.0.0.1; city=' + inp3.value;
+
+        });
+
+        console.log(getCookie('city'));
+
+
+    </script>
+    <hr>
 
 
 
