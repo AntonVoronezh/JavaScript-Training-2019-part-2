@@ -336,6 +336,58 @@
     <hr>
 
 
+    <h3>Задача 7. При заходе на страницу появляется счетчик обратного отсчета.
+        Когда он доходит до нуля, на странице пишется - 'отсчет закончен'.
+        При обновлении страницы счетчик не должен начинать идти заново.</h3>
+
+
+    <p class="p7">10</p>
+
+    <script>
+
+
+
+
+        window.addEventListener('load', function () {
+
+            if (getCookie('p7')) {
+
+                // console.log('--');
+
+            } else {
+
+                go7();
+
+            }
+
+            document.cookie = 'p7=true';
+
+
+        });
+
+
+
+        function go7() {
+            window.timerId = window.setInterval(timer7, 300);
+        };
+
+        function stop() {
+            window.clearInterval(window.timerId);
+        };
+
+        function timer7() {
+            var test = document.querySelector('.p7');
+            var number = parseInt(test.innerHTML) - 1;
+            test.innerHTML = number;
+            if (number == 0) {
+                stop();
+                test.innerHTML = 'Обратный отсчет завершен.';
+            }
+        }
+    </script>
+    <hr>
+
+
 
 
 
