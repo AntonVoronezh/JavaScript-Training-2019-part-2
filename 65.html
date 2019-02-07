@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Основы работы с ООП в JavaScript</h2>
+
+    <h2>Простые задачи</h2>
+
+    <h3>Задача 1. Реализуйте класс Worker (Работник), который будет иметь следующие свойства:
+        name (имя), surname (фамилия), rate (ставка за день работы), days (количество отработанных дней).
+        Также класс должен иметь метод getSalary(), который будет выводить зарплату работника.
+        Зарплата - это произведение (умножение) ставки rate на количество отработанных дней days.
+
+        Вот так должен работать наш класс: br
+
+        var worker = new Worker('Иван', 'Иванов', 10, 31);
+
+        console.log(worker.name); //выведет 'Иван'
+        console.log(worker.surname); //выведет 'Иванов'
+        console.log(worker.rate); //выведет 10
+        console.log(worker.days); //выведет 31
+        console.log(worker.getSalary()); //выведет 310 - то есть 10*31
+        С помощью нашего класса создайте двух рабочих и найдите сумму их зарплат.</h3>
+
+    <script>
+
+        class Worker {
+
+            constructor(argName, argSurname, argRate, argDays) {
+
+                this.name = argName;
+                this.surname = argSurname;
+                this.rate = argRate;
+                this.days = argDays;
+
+            }
+
+            getSalary() {
+
+                return this.rate * this.days;
+
+            }
+
+        };
+
+        const worker = new Worker('Иван', 'Иванов', 10, 31);
+
+        console.log(worker.name); //выведет 'Иван'
+        console.log(worker.surname); //выведет 'Иванов'
+        console.log(worker.rate); //выведет 10
+        console.log(worker.days); //выведет 31
+        console.log(worker.getSalary()); //выведет 310 - то есть 10*31
+
+
+        const worker2 = new Worker('Петр', 'Петров', 20, 31);
+
+        console.log(worker2.name); //выведет 'Иван'
+        console.log(worker2.surname); //выведет 'Иванов'
+        console.log(worker2.rate); //выведет 10
+        console.log(worker2.days); //выведет 31
+        console.log(worker2.getSalary()); //выведет 310 - то есть 10*31
+
+        console.log(worker.getSalary() + worker2.getSalary());
+
+
+
+    </script>
+    <hr>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
