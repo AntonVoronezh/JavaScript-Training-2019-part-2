@@ -272,7 +272,71 @@
 
     <hr>
 
-  
+    <h2>Практика</h2>
+
+    <h3>Задача 4.Реализуйте класс MyString, который будет иметь следующие методы: метод reverse(),
+        который параметром принимает строку, а возвращает ее в перевернутом виде, метод ucFirst(),
+        который параметром принимает строку, а возвращает эту же строку, сделав ее первую букву
+        заглавной и метод ucWords, который принимает строку и делает заглавной первую букву
+        каждого слова этой строки.
+
+        Наш класс должен работать так:
+
+        var str = new MyString();
+
+        console.log(str.reverse('abcde')); //выведет 'edcba'
+        console.log(str.ucFirst('abcde')); //выведет 'Abcde'
+        console.log(str.ucWords('abcde abcde abcde')); //выведет 'Abcde Abcde Abcde'</h3>
+
+
+    <script>
+
+        class MyString {
+
+            reverse(argStr) {
+
+                return argStr.split('').reverse().join('');
+
+            }
+
+            ucFirst(argStr) {
+
+                const [first, ...rest] = argStr.split('');
+
+                return first.toUpperCase() + rest.join('');
+
+            }
+
+            ucWords(argStr) {
+
+                const arr = argStr.split(' ');
+
+                const result = [];
+
+                arr.forEach(element => {
+
+                    result.push(this.ucFirst(element));
+
+                });
+
+                return result.join(' ');
+
+            }
+
+
+        };
+
+        const str = new MyString();
+
+        console.log('abcde', str.reverse('abcde')); //выведет 'edcba'
+        console.log(str.ucFirst('abcde')); //выведет 'Abcde'
+        console.log(str.ucWords('abcde abcde abcde')); //выведет 'Abcde Abcde Abcde'
+
+    </script>
+
+    <hr>
+
+
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
