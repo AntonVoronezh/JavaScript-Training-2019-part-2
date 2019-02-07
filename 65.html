@@ -116,6 +116,77 @@
     </script>
     <hr>
 
+    <h2>Геттеры и сеттеры</h2>
+
+    <h3>Задача 2. Модифицируйте класс Worker из предыдущей задачи следующим образом:
+        сделайте все его свойства приватными, а для их чтения сделайте методы-геттеры.
+        Наш класс теперь будет работать так:
+
+        var worker = new Worker('Иван', 'Иванов', 10, 31);
+
+        console.log(worker.getName()); //выведет 'Иван'
+        console.log(worker.getSurname()); //выведет 'Иванов'
+        console.log(worker.getRate()); //выведет 10
+        console.log(worker.getDays()); //выведет 31
+        console.log(worker.getSalary()); //выведет 310 - то есть 10*31</h3>
+
+    <script>
+
+        class Worker2 {
+
+            constructor(argName, argSurname, argRate, argDays) {
+
+                this._name = argName;
+                this._surname = argSurname;
+                this._rate = argRate;
+                this._days = argDays;
+
+            }
+
+            getName() {
+
+                return this._name;
+
+            }
+            getSurname() {
+
+                return this._surname;
+
+            }
+            getRate() {
+
+                return this._rate;
+
+            }
+            getDays() {
+
+                return this._days;
+
+            }
+
+            getSalary() {
+
+                return this._rate * this._days;
+
+            }
+
+        };
+
+        const worker21 = new Worker2('Иван', 'Иванов', 10, 31);
+
+        console.log(worker21.getName()); //выведет 'Иван'
+        console.log(worker21.getSurname()); //выведет 'Иванов'
+        console.log(worker21.getRate()); //выведет 10
+        console.log(worker21.getDays()); //выведет 31
+        console.log(worker21.getSalary()); //выведет 310 - то есть 10*31
+
+
+
+
+
+    </script>
+
+
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
