@@ -337,6 +337,62 @@
     <hr>
 
 
+    <h3>Задача 5. Реализуйте класс Validator, который будет проверять строки.
+        К примеру, у него будет метод isEmail параметром принимает строку и проверяет,
+        является ли она корректным емейлом или нет. Если является - возвращает true,
+        если не является - то false. Кроме того, класс будет иметь следующие методы:
+        метод isDomain для проверки домена,
+        метод isDate для проверки даты и
+        метод isPhone для проверки телефона:
+
+        var validator = new Validator();
+
+        console.log(validator.isEmail('phphtml@mail.ru'));
+        console.log(validator.isDomain('phphtml.net'));
+        console.log(validator.isDate('12.05.2020'));
+        console.log(validator.isPhone('+375 (29) 817-68-92')); //тут можете формат своей страны</h3>
+
+
+    <script>
+
+        class Validator {
+
+            isEmail(argStr) {
+
+                return /[a-z0-9]@[a-z0-9].[a-z]/.test(argStr);
+
+            }
+
+            isDomain(argStr) {
+
+                return /[a-z0-9].[a-z]{2,5}/.test(argStr);
+
+            }
+
+            isDate(argStr) {
+
+                return /[0-9]{2}.[0-9]{2}.[0-9]{4}/.test(argStr);
+
+            }
+
+            isPhone(argStr) {
+
+                return /\+7\s\([0-9]{2}\)\s[0-9-]{9}/.test(argStr);
+
+            }
+
+
+        };
+
+
+        var validator = new Validator();
+
+        console.log('isEmail', validator.isEmail('phphtml@mail.ru'));
+        console.log('isDomain',validator.isDomain('phphtml.net'));
+        console.log('isDate', validator.isDate('12.05.2020'));
+        console.log('isPhone', validator.isPhone('+7 (29) 817-68-92')); //тут можете формат своей страны
+
+    </script>
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
