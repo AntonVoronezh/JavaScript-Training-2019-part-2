@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Наследование классов в JavaScript</h2>
+
+    <h3>Видео 1. Перед решением задач изучите теорию к данному уроку.
+
+        Реализуйте класс Student (Студент), который будет наследовать от класса User,
+        подобно тому, как это сделано в теоретической части урока. Этот класс должен иметь
+        следующие свойства: name (имя, наследуется от User),
+        surname (фамилия, наследуется от User),
+        year (год поступления в вуз).
+        Класс должен иметь метод getFullName() (наследуется от User),
+        с помощью которого можно вывести одновременно имя и фамилию студента.
+        Также класс должен иметь метод getCourse(), который будет выводить текущий
+        курс студента (от 1 до 5). Курс вычисляется так: нужно от текущего года
+        отнять год поступления в вуз. Текущий год получите самостоятельно.</h3>
+
+    <script>
+
+        class User {
+            constructor(name, surname) {
+                this.name = name;
+                this.surname = surname;
+            }
+
+            getFullName() {
+                return this.name + ' ' + this.surname;
+            }
+        }
+
+        class Student extends User {
+
+            constructor(argName, argSurname, argYear) {
+
+                super(argName, argSurname);
+
+                this.year = argYear;
+            }
+
+            getCourse() {
+
+                const data = new Date();
+
+                return data.getFullYear() - this.year;
+
+            }
+
+        };
+
+
+        const student = new Student('Иван', 'Иванов', 2016);
+
+        console.log(student.name); //выведет 'Иван'
+        console.log(student.surname); //выведет 'Иванов'
+        console.log(student.getFullName()); //выведет 'Иван Иванов'
+        console.log(student.year); //выведет 2016
+        console.log(student.getCourse()); //выведет 3 - третий курс, так как текущий год 2019
+
+
+    </script>
+    <hr>
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
