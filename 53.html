@@ -462,6 +462,27 @@
     <hr>
 
 
+    <h3>Задача 18. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk18" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx18 = document.querySelector('.tsk18').getContext('2d');
+
+        ctx18.beginPath();
+
+        ctx18.arc(100, 100, 50, 0, getRadians(180));
+
+        ctx18.closePath();
+
+        ctx18.fill();
+
+
+
+
+    </script>
+    <hr>
 
 
 
