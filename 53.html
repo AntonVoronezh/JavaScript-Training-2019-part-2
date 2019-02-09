@@ -195,6 +195,34 @@
 
 
 
+    <h3>Задача 7. Используя методы moveTo и lineTo для рисования контура и метод fill
+        для его заливки, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk7" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx7 = document.querySelector('.tsk7').getContext('2d');
+
+        ctx7.beginPath();
+
+        ctx7.moveTo(50, 50);
+
+        ctx7.lineTo(100, 50);
+
+        ctx7.lineTo(100, 100);
+
+        ctx7.lineTo(50, 100);
+
+
+        ctx7.fill();
+
+
+
+
+    </script>
+    <hr>
+
 
 
 
