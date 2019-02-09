@@ -648,7 +648,35 @@
     </script>
     <hr>
 
+    <h3>Задача 25. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
 
+    <canvas class="can  tsk25" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx25 = document.querySelector('.tsk25').getContext('2d');
+
+        for (let i = 0; i < 10; i += 1) {
+
+            ctx25.moveTo(50, 10 * i + 50);
+
+            ctx25.lineTo(150, 10 * i + 50)
+
+        };
+
+        for (let i = 0; i < 10; i += 1) {
+
+            ctx25.moveTo(10 * i + 55, 45);
+
+            ctx25.lineTo(10 * i + 55, 145)
+
+        };
+
+        ctx25.stroke();
+
+
+    </script>
+    <hr>
 
 
 
