@@ -485,7 +485,27 @@
     <hr>
 
 
+    <h3>Задача 19. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
 
+    <canvas class="can  tsk19" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx19 = document.querySelector('.tsk19').getContext('2d');
+
+        ctx19.beginPath();
+
+        ctx19.arc(100, 100, 50, 0, getRadians(90));
+
+        ctx19.closePath();
+
+        ctx19.fill();
+
+
+
+
+    </script>
+    <hr>
 
 
 
