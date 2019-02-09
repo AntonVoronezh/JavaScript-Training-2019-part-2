@@ -370,6 +370,33 @@
     </script>
     <hr>
 
+    <h2>На окружности</h2>
+
+    <h3>Задача 14. Используя метод arc, нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk14" width="200" height="200"></canvas>
+
+    <script>
+
+        function getRadians(degrees) {
+            return (Math.PI / 180) * degrees;
+        }
+
+        const ctx14 = document.querySelector('.tsk14').getContext('2d');
+
+        ctx14.beginPath();
+
+        ctx14.arc(100, 100, 50, 0, getRadians(360));
+
+        ctx14.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
 
 
 
