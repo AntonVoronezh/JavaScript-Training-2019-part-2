@@ -623,6 +623,31 @@
     <hr>
 
 
+    <h2>На циклы</h2>
+
+
+    <h3>Задача 24. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk24" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx24 = document.querySelector('.tsk24').getContext('2d');
+
+        for (let i = 0; i < 10; i += 1) {
+
+            ctx24.moveTo(50, 10 * i + 50);
+
+            ctx24.lineTo(150, 10 * i + 50)
+
+        };
+
+        ctx24.stroke();
+
+
+    </script>
+    <hr>
+
 
 
 
