@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            max-height: 100vh;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .moveword {
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .moveword__elems {
+            min-width: 50px;
+            height: 50px;
+            margin: 1px;
+            border: 1px solid #000000;
+        }
+
+        .moveword__panel {
+            /* border: 1px solid green; */
+            min-width: 50px;
+            min-height: 160px;
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+
+        .moveword__parent {
+            width: 54px;
+            min-height: 160px;
+            border: 1px dotted #ccc;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .moveword__field {
+            display: flex;
+            justify-content: space-between;
+            /* border: 1px solid #000000; */
+        }
+
+        .moveword__wrap {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .moveword__select {
+            margin-left: 5px;
+        }
+
+        .moveword__start {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="moveword" class="moveword">
+        <div class="moveword__wrap">
+            <div class="moveword__count">Количество букв</div>
+            <select class="moveword__select">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+            </select>
+        </div>
+        <div class="moveword__field">
+            <div class="moveword__parent"></div>
+            <div class="moveword__panel">
+                <div class="moveword__elems" draggable="true">1111</div>
+                <div class="moveword__elems" draggable="true">222</div>
+                <div class="moveword__elems" draggable="true">3333</div>
+            </div>
+        </div>
+        <button class="moveword__start">Начать</button>
+
+    </div>
+
+
+    <script>
+        // слова из 4 букв
+        // https://vfrsute.ru/%D1%81%D0%BA%D0%B0%D0%BD%D0%B2%D0%BE%D1%80%D0%B4/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE-%D0%B8%D0%B7-3-%D0%B1%D1%83%D0%BA%D0%B2/
+        const words = {
+
+            three: [
+                'аул', 'бак', 'воз', 'гол', 'дым', 'ель', 'жук', 'зло', 'имя', 'кот', 'лев', 'мыс', 'нос', 'оба', 'пуд'
+            ]
+
+        };
+
+        console.log(words.three);
+        
+
+        const parent = document.querySelector('.moveword__parent');
+        const elems = document.querySelectorAll('.moveword__elems');
+
+
+
+        elems.forEach((elem, i) => {
+
+            elem.addEventListener('dragstart', (event) => {
+
+                event.dataTransfer.setData('data4', i);
+
+            });
+
+        });
+
+
+
+        parent.addEventListener('dragover', (event) => {
+
+            event.preventDefault();
+
+        });
+
+
+        parent.addEventListener('drop', (event) => {
+
+            parent.appendChild(elems[event.dataTransfer.getData('data4')]);
+
+            // parent.p(parent.firstChild);
+
+        });
+
+
+
+
+
+        function shuffle(argArr) {
+
+            function compareRandom(a, b) {
+                return Math.random() - 0.5;
+            }
+
+            return argArr.sort(compareRandom);
+
+        };
+
+        function getRandWord(argArr) {
+
+            const rand = getRandomInt(0, argArr.length - 1);
+
+            return argArr[rand];
+
+        };
+
+        function getRandomInt(min, max) {
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        };
+
+    </script>
+</body>
+
+</html>
