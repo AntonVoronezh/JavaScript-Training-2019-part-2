@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .canvas {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+
+        .can {
+            background-color: #ccc;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Задачи на работу с canvas на JavaScript</h2>
+
+    <h2>На линии</h2>
+
+    <h3>Задача 1. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="canvas tsk1"></canvas>
+
+    <script>
+
+        const tsk1 = document.querySelector('.tsk1');
+        const ctx1 = tsk1.getContext('2d');
+
+        ctx1.beginPath();
+
+        ctx1.moveTo(50, 50);
+
+        ctx1.lineTo(150, 50);
+
+        ctx1.stroke();
+
+
+
+
+    </script>
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
