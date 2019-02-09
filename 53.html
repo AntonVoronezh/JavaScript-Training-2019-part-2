@@ -540,6 +540,36 @@
 
 
 
+    <h3>Задача 21. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk21" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx21 = document.querySelector('.tsk21').getContext('2d');
+
+        ctx21.beginPath();
+
+        ctx21.strokeStyle = 'red';
+
+        ctx21.moveTo(50, 50);
+
+        ctx21.lineTo(150, 50)
+        ctx21.stroke();
+
+        ctx21.beginPath();
+
+        ctx21.strokeStyle = 'green';
+
+        ctx21.moveTo(50, 100);
+
+        ctx21.lineTo(150, 100)
+        ctx21.stroke();
+
+    </script>
+    <hr>
+
+
 
 
 
