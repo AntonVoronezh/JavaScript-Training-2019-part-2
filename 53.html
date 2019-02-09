@@ -508,6 +508,35 @@
     <hr>
 
 
+    <h2>На смену цвета</h2>
+
+    <h3>Задача 20. Используя цикл нарисуйте на канвасе следующую фигуру:</h3>
+
+    <canvas class="can  tsk20" width="200" height="200"></canvas>
+
+    <script>
+
+        const ctx20 = document.querySelector('.tsk20').getContext('2d');
+
+        ctx20.beginPath();
+
+        ctx20.strokeStyle = 'red';
+
+        for (let i = 0; i < 2; i += 1) {
+
+            ctx20.moveTo(50, 50);
+
+            ctx20.lineTo(150, 50)
+
+        }
+
+        ctx20.stroke();
+
+
+
+
+    </script>
+    <hr>
 
 
 
