@@ -84,6 +84,37 @@
 
 
 
+    <h3>Задача 3. Нарисуйте на канвасе такую же фигуру, как показано в образце:</h3>
+
+    <canvas class="canvas tsk3"></canvas>
+
+    <script>
+
+        const tsk3 = document.querySelector('.tsk3');
+        const ctx3 = tsk3.getContext('2d');
+
+        ctx3.beginPath();
+
+        ctx3.moveTo(50, 50);
+
+        ctx3.lineTo(100, 100);
+
+        ctx3.stroke();
+
+        ctx3.beginPath();
+
+        ctx3.moveTo(50, 100);
+
+        ctx3.lineTo(100, 50);
+
+        ctx3.stroke();
+
+
+    </script>
+    <hr>
+
+
+
 
 
 
