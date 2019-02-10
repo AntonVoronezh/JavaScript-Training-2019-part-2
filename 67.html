@@ -131,6 +131,75 @@
     </script>
     <hr>
 
+    <h3>Задача 2. Реализуйте класс Rectangle, о котором я рассказываю в видео в
+        теоретической части урока. У него должны быть следующие свойства:
+        ширина width, высота height. Также у него должны быть следующие методы:
+        получить ширину getWidth, установить ширину setWidth, получить высоту getHeight,
+        установить высоту setHeight.</h3>
+
+    <script>
+
+        class Rectangle {
+
+            constructor(argWidth, argHeight) {
+
+                this.height = argHeight;
+
+                this.width = argWidth;
+
+                this.elem = document.createElement('div');
+
+                this.elem.style.width = this.width + 'px';
+
+                this.elem.style.height = this.height + 'px';
+
+                this.elem.style.border = '1px solid red';
+
+                document.body.appendChild(this.elem);
+
+            }
+
+            getWidth() {
+
+                return this.width;
+
+            }
+            getHeight() {
+
+                return this.height;
+
+            }
+            setWidth(argValue) {
+
+                this.width = argValue;
+
+            }
+            setHeight(argValue) {
+
+                this.height = argValue;
+
+            }
+
+
+        };
+
+
+
+        const rec = new Rectangle(100, 200);
+
+        console.log(rec.width);
+        console.log(rec.getWidth());
+        console.log(rec.getHeight());
+        rec.setWidth(300);
+        rec.setHeight(30);
+
+        console.log(rec.getWidth());
+        console.log(rec.getHeight());
+
+
+
+    </script>
+    <hr>
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
