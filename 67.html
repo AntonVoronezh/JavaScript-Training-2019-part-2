@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Работа с элементами</h2>
+
+    <h3>Задача 1. Перед решением задач изучите теорию к данному уроку.
+
+        Реализуйте класс Elem, который параметром принимает селектор одного HTML элемента
+        и затем может выполнять с ним различные операции. Класс должен работать следующим образом:
+
+        var elem = new Elem('селектор');
+
+        elem.html('!'); //запишет в текст элемента '!'
+        elem.append('!'); //запишет в начало элемента '!'
+        elem.prepend('!'); //запишет в конец элемента '!'
+        elem.attr('class', 'www'); //запишет в атрибут class значение www
+
+        //Должны работать цепочки методов:
+        elem.html('hello').append('!').prepend('!');
+        elem.attr('class', 'www').attr('title', 'hello');</h3>
+
+    <script>
+
+        class Elem {
+            constructor(argElem) {
+
+                this.elem = document.createElement(argElem);
+
+                document.body.appendChild(this.elem);
+
+            }
+
+            html(argStr) {
+
+                this.elem.innerHTML = argStr;
+                return this;
+
+            }
+
+            append(argStr) {
+
+                this.elem.innerHTML = argStr + this.elem.innerHTML;
+                return this;
+
+            }
+
+            prepend(argStr) {
+
+                this.elem.innerHTML += argStr;
+                return this;
+
+            }
+
+            attr(argName, argValue) {
+
+                this.elem.setAttribute(argName, argValue);
+                return this;
+
+            }
+
+
+
+
+
+        };
+
+
+
+        const elem = new Elem('div');
+
+        elem.html('1'); //запишет в текст элемента '!'
+        elem.append('2'); //запишет в начало элемента '!'
+        elem.prepend('3'); //запишет в конец элемента '!'
+        elem.attr('class', 'www'); //запишет в атрибут class значение www
+
+        //Должны работать цепочки методов:
+        elem.html('hello').append('!').prepend('!');
+        elem.attr('class', 'www').attr('title', 'hello');
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 2. Реализуйте класс Rectangle, о котором я рассказываю в видео в
+        теоретической части урока. У него должны быть следующие свойства:
+        ширина width, высота height. Также у него должны быть следующие методы:
+        получить ширину getWidth, установить ширину setWidth, получить высоту getHeight,
+        установить высоту setHeight.</h3>
+
+    <script>
+
+        class Rectangle {
+
+            constructor(argWidth, argHeight) {
+
+                this.height = argHeight;
+
+                this.width = argWidth;
+
+                this.elem = document.createElement('div');
+
+                this.elem.style.width = this.width + 'px';
+
+                this.elem.style.height = this.height + 'px';
+
+                this.elem.style.border = '1px solid red';
+
+                document.body.appendChild(this.elem);
+
+            }
+
+            getWidth() {
+
+                return this.width;
+
+            }
+            getHeight() {
+
+                return this.height;
+
+            }
+            setWidth(argValue) {
+
+                this.width = argValue;
+
+            }
+            setHeight(argValue) {
+
+                this.height = argValue;
+
+            }
+
+
+        };
+
+
+
+        const rec = new Rectangle(100, 200);
+
+        console.log(rec.width);
+        console.log(rec.getWidth());
+        console.log(rec.getHeight());
+        rec.setWidth(300);
+        rec.setHeight(30);
+
+        console.log(rec.getWidth());
+        console.log(rec.getHeight());
+
+
+
+    </script>
+    <hr>
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
