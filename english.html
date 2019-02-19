@@ -276,6 +276,19 @@ console.log(getSubstantives());
 
 
 
+        function addWords(argObj) {
+
+            const { arr, inp, pEng, pRus, radEng, radRus, radRan, radNum, chec, btnSpell, btnSpellShow, checRes, count } = argObj;
+
+            const [eng, rus] = getWords(radRan, radNum, arr, count);
+
+            checkSpell(chec, inp, btnSpell, btnSpellShow, checRes, eng, rus);
+
+            selectLang(radEng, radRus, eng, rus, pEng, pRus);
+
+            cleanFields(checRes, inp);
+
+        };
 
 
 
