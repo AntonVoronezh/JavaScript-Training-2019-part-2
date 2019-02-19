@@ -456,6 +456,19 @@ console.log(getSubstantives());
 
 
 
+        function parseTxt(argTxt, argResult) {
+
+            const data = argTxt.split(',');
+
+            data.forEach(elem => {
+
+                let out = elem.trim().split(':');
+
+                argResult.push([out[0].trim(), out[1].trim()]);
+
+            });
+
+        };
 
     </script>
 
