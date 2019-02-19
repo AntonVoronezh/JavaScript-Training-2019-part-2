@@ -92,108 +92,7 @@
 
 <body>
 
-    <div class="eng">
-        <div class="eng__substantive">
-            <div class="eng__substantive-title">
-                substantive / существительные
-            </div>
-            <div class="eng__substantive-wrap">
-                <div class="eng__wrap">
-                    <p class="eng__text  eng__text--sub-eng"><b></b></p>
-                    <p class="eng__text  eng__text--sub-rus"><b></b></p>
-                    <input type="text" class="eng__input  eng__input--sub  none">
-                    <p class="eng__text-sub-check-result"></p>
-                    <button class="eng__btn-sub-check  none">проверить</button>
-                    <button class="eng__btn-sub-show  none">показать</button>
-                </div>
 
-
-                <div class="eng__wrap  eng__wrap--flex">
-                    <div class="eng__wrap">
-                        <span>
-                            <input type="radio" name="sub1" class="eng__sub-radio  eng__sub-radio--rand" checked>
-                            случайно
-                        </span>
-                        <span>
-                            <input type="radio" name="sub1" class="eng__sub-radio  eng__sub-radio--num">
-                            по порядку
-                        </span>
-                    </div>
-                    <div class="eng__wrap">
-
-                        <span>
-                            <input type="radio" name="sub2" class="eng__sub-radio  eng__sub-radio--eng" checked>
-                            eng
-                        </span>
-                        <span>
-                            <input type="radio" name="sub2" class="eng__sub-radio  eng__sub-radio--rus">
-                            рус
-                        </span>
-                        <span>
-                            <input type="checkbox" name="sub3" class="eng__sub-radio  eng__sub-checkbox">
-                            правопис
-                        </span>
-                    </div>
-
-                    <button class="eng__sub-btn">новое слово</button>
-                </div>
-            </div>
-        </div>
-
-
-
-
-    </div>
-    <!--  -->
-    <div class="eng">
-        <div class="eng__adjectives">
-            <div class="eng__adjectives-title">
-                adjectives / прилагательные
-            </div>
-            <div class="eng__adjectives-wrap">
-                <div class="eng__wrap">
-                    <p class="eng__text  eng__text--adj-eng"><b></b></p>
-                    <p class="eng__text  eng__text--adj-rus"><b></b></p>
-                    <input type="text" class="eng__input  eng__input--adj  none">
-                    <p class="eng__text-adj-check-result  green"></p>
-                    <button class="eng__btn-adj-check  none">проверить</button>
-                    <button class="eng__btn-adj-show  none">показать</button>
-                </div>
-
-
-                <div class="eng__wrap  eng__wrap--flex">
-                    <div class="eng__wrap">
-                        <span>
-                            <input type="radio" name="adj1" class="eng__adj-radio  eng__adj-radio--rand" checked>
-                            случайно
-                        </span>
-                        <span>
-                            <input type="radio" name="adj1" class="eng__adj-radio  eng__adj-radio--num">
-                            по порядку
-                        </span>
-                    </div>
-                    <div class="eng__wrap">
-
-                        <span>
-                            <input type="radio" name="adj2" class="eng__adj-radio  eng__adj-radio--eng" checked>
-                            eng
-                        </span>
-                        <span>
-                            <input type="radio" name="adj2" class="eng__adj-radio  eng__adj-radio--rus">
-                            рус
-                        </span>
-                        <span>
-                            <input type="checkbox" name="adj3" class="eng__adj-radio  eng__adj-checkbox">
-                            правопис
-                        </span>
-                    </div>
-
-                    <button class="eng__adj-btn">новое слово</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
 
 
 
@@ -202,272 +101,32 @@
 
     <script>
 
-        const adjEng = document.querySelector('.eng__text--adj-eng');
-        const adjRus = document.querySelector('.eng__text--adj-rus');
-        const adjBtn = document.querySelector('.eng__adj-btn');
-        const adjRadioEng = document.querySelector('.eng__adj-radio--eng');
-        const adjRadioRus = document.querySelector('.eng__adj-radio--rus');
-        const adjRadioRand = document.querySelector('.eng__adj-radio--rand');
-        const adjRadioNum = document.querySelector('.eng__adj-radio--num');
-        const adjCheckbox = document.querySelector('.eng__adj-checkbox');
-        const adjInput = document.querySelector('.eng__input--adj');
-        const adjBtnSpell = document.querySelector('.eng__btn-adj-check');
-        const adjBtnSpellShow = document.querySelector('.eng__btn-adj-show');
-        const adjCheckResult = document.querySelector('.eng__text-adj-check-result');
 
-        const subEng = document.querySelector('.eng__text--sub-eng');
-        const subRus = document.querySelector('.eng__text--sub-rus');
-        const subBtn = document.querySelector('.eng__sub-btn');
-        const subRadioEng = document.querySelector('.eng__sub-radio--eng');
-        const subRadioRus = document.querySelector('.eng__sub-radio--rus');
-        const subRadioRand = document.querySelector('.eng__sub-radio--rand');
-        const subRadioNum = document.querySelector('.eng__sub-radio--num');
-        const subCheckbox = document.querySelector('.eng__sub-checkbox');
-        const subInput = document.querySelector('.eng__input--sub');
-        const subBtnSpell = document.querySelector('.eng__btn-sub-check');
-        const subBtnSpellShow = document.querySelector('.eng__btn-sub-show');
-        const subCheckResult = document.querySelector('.eng__text-sub-check-result');
+console.log(getSubstantives());
 
 
-        let adjNum = 0;
-        let adjSub = 0;
 
 
-        const adjObj = {
 
-            arr: getAdjectives(),
-            inp: adjInput,
-            pEng: adjEng,
-            pRus: adjRus,
-            radEng: adjRadioEng,
-            radRus: adjRadioRus,
-            radRan: adjRadioRand,
-            radNum: adjRadioNum,
-            chec: adjCheckbox,
-            btnSpell: adjBtnSpell,
-            btnSpellShow: adjBtnSpellShow,
-            checRes: adjCheckResult,
-            count: () => adjNum++
-        };
 
-        const subObj = {
 
-            arr: getSubstantives(),
-            inp: subInput,
-            pEng: subEng,
-            pRus: subRus,
-            radEng: subRadioEng,
-            radRus: subRadioRus,
-            radRan: subRadioRand,
-            radNum: subRadioNum,
-            chec: subCheckbox,
-            btnSpell: subBtnSpell,
-            btnSpellShow: subBtnSpellShow,
-            checRes: subCheckResult,
-            count: () => adjSub++
-        };
 
 
 
-        adjBtn.addEventListener('click', () => addWords(adjObj));
 
-        subBtn.addEventListener('click', () => addWords(subObj));
 
 
 
-        function addWords(argObj) {
 
-            const { arr, inp, pEng, pRus, radEng, radRus, radRan, radNum, chec, btnSpell, btnSpellShow, checRes, count } = argObj;
 
-            const [eng, rus] = getWords(radRan, radNum, arr, count);
 
-            checkSpell(chec, inp, btnSpell, btnSpellShow, checRes, eng, rus);
 
-            selectLang(radEng, radRus, eng, rus, pEng, pRus);
 
-            cleanFields(checRes, inp);
 
-        };
 
 
-        function checkSpell(argCheck, argInp, argBtn, argBtn2, argRes, argWord1, argWord2) {
 
-            if (argCheck.checked) {
 
-                argInp.classList.remove('none');
-                argBtn.classList.remove('none');
-                argBtn2.classList.remove('none');
-                argRes.classList.remove('none');
-
-            } else {
-
-                argInp.classList.add('none');
-                argBtn.classList.add('none');
-                argBtn2.classList.add('none');
-                argRes.classList.add('none');
-
-            }
-
-            argBtn.addEventListener('click', () => {
-
-                argRes.classList.remove('red');
-
-                if (checkWords(argInp.value, argWord1) || checkWords(argInp.value, argWord2)) {
-
-                    argRes.innerHTML = 'YES';
-
-                } else {
-
-                    argRes.innerHTML = 'NO';
-
-                    argRes.classList.add('red');
-
-                }
-
-            });
-
-
-            argBtn2.addEventListener('click', () => {
-
-                argInp.value = '';
-
-                argInp.value = argWord1 + ' ' + argWord2;
-
-            });
-
-        };
-
-
-        function cleanFields(argElem, argInp) {
-
-            argElem.classList.remove('red');
-
-            argElem.innerHTML = '';
-
-            argInp.value = '';
-
-        };
-
-        function checkWords(argStr1, argStr2) {
-
-            return argStr1 === argStr2;
-
-        };
-
-
-
-        function selectLang(argRadio1, argRadio2, argLang1, argLang2, argElem1, argElem2) {
-
-            if (argRadio1.checked) {
-
-                argElem2.innerHTML = '';
-
-                argElem1.innerHTML = `<a href="https://translate.yandex.ru/?lang=en-ru&text=${argLang1}"
-                    target="blank">${argLang1}</a>`;
-
-            }
-            if (argRadio2.checked) {
-
-                argElem1.innerHTML = '';
-
-                argElem2.innerHTML = `<a href="https://translate.yandex.ru/?lang=ru-en&text=${argLang2}"
-                    target="blank">${argLang2}</a>`;
-
-            }
-
-        };
-
-
-        function getWords(argRan, argNum, argArr, argCount) {
-
-            let result;
-
-            if (argRan.checked) {
-
-                result = getRandWord(argArr);
-
-            }
-
-            if (argNum.checked) {
-
-                result = argArr[argCount()];
-
-            }
-
-            return result;
-
-        };
-
-
-        function getRandWord(argArr) {
-
-            const rand = getRandomInt(0, argArr.length - 1);
-
-            return argArr[rand];
-
-        };
-
-
-
-        function getRandomInt(min, max) {
-
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-
-        };
-
-
-        function getAdjectives() {
-
-            let result = [];
-
-            readTextFile("./adj.txt", parseTxt, result);
-
-            return result;
-
-        };
-
-
-        function getSubstantives() {
-
-            let result = [];
-
-            readTextFile("./sub.txt", parseTxt, result);
-
-            return result;
-
-        };
-
-
-        function readTextFile(file, callback, result) {
-            var rawFile = new XMLHttpRequest();
-            rawFile.overrideMimeType("text/html");
-            rawFile.open("GET", file, true);
-            rawFile.onreadystatechange = function () {
-                if (rawFile.readyState === 4 && rawFile.status == "200") {
-                    callback(rawFile.responseText, result);
-                }
-            }
-            rawFile.send(null);
-            // Эта функция также работает для загрузки файлов .html или .txt 
-            // путем переопределения параметра типа mime на "text/html", "text/plain" и т.д.
-            // application/json
-        }
-
-
-
-        function parseTxt(argTxt, argResult) {
-
-            const data = argTxt.split(',');
-
-            data.forEach(elem => {
-
-                let out = elem.trim().split(':');
-
-                argResult.push([out[0].trim(), out[1].trim()]);
-
-            });
-
-        };
 
     </script>
 

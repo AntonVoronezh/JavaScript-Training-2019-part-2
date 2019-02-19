@@ -1,0 +1,12 @@
+always:всегда,
+usually:обычно,
+often:часто,
+sometimes:иногда,
+seldom:редко,
+never:никогда,
+constantly:постоянно,
+regularly:регулярно,
+perodically: периодически,
+once a:один раз,
+twice a:два раза, 
+3 times a:три раза в

@@ -29,4 +29,12 @@ fun:веселый,
 rude:грубый,
 stubborn:упрямый,
 selfish:эгоистичный,
-polite:вежливый
+polite:вежливый,
+diligent:старательный,
+consieientious:добросовестный,
+ploding:усидчивый,
+persistent:настойчивый,
+studious:прилежный,
+sunny:солнечный,
+rainy:дождливый,
+snowy:снежный
