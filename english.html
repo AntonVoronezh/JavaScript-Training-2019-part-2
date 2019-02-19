@@ -428,7 +428,15 @@ console.log(getSubstantives());
         };
 
 
+        function getSubstantives() {
 
+            let result = [];
+
+            readTextFile("./sub.txt", parseTxt, result);
+
+            return result;
+
+        };
 
 
 
