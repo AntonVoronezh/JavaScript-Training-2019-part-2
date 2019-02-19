@@ -367,7 +367,14 @@ console.log(getSubstantives());
                     target="blank">${argLang1}</a>`;
 
             }
+            if (argRadio2.checked) {
 
+                argElem1.innerHTML = '';
+
+                argElem2.innerHTML = `<a href="https://translate.yandex.ru/?lang=ru-en&text=${argLang2}"
+                    target="blank">${argLang2}</a>`;
+
+            }
 
         };
 
