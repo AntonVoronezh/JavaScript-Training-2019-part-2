@@ -30,6 +30,10 @@
             height: 50px;
             margin: 1px;
             border: 1px solid #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
         }
 
         .moveword__panel {
@@ -64,8 +68,30 @@
             margin-left: 5px;
         }
 
-        .moveword__start {
+        .moveword__start,
+        .moveword__more,
+        .moveword__again {
             margin-top: 10px;
+        }
+
+        .red {
+            border: 1px solid red;
+        }
+
+        .green {
+            border: 1px solid green;
+        }
+
+        .none {
+            border: 1px solid transparent;
+        }
+
+        .dn {
+            display: none;
+        }
+
+        .db {
+            display: block;
         }
     </style>
 </head>
@@ -75,7 +101,7 @@
         <div class="moveword__wrap">
             <div class="moveword__count">Количество букв</div>
             <select class="moveword__select">
-                <option value="3">3</option>
+                <option value="3" selected>3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
@@ -83,14 +109,16 @@
             </select>
         </div>
         <div class="moveword__field">
-            <div class="moveword__parent"></div>
-            <div class="moveword__panel">
-                <div class="moveword__elems" draggable="true">1111</div>
+            <!-- <div class="moveword__parent"></div> -->
+            <!-- <div class="moveword__panel"> -->
+            <!-- <div class="moveword__elems" draggable="true">1111</div>
                 <div class="moveword__elems" draggable="true">222</div>
-                <div class="moveword__elems" draggable="true">3333</div>
-            </div>
+                <div class="moveword__elems" draggable="true">3333</div> -->
+            <!-- </div> -->
         </div>
         <button class="moveword__start">Начать</button>
+        <button class="moveword__again dn">Еще раз</button>
+        <button class="moveword__more dn" disabled>Дальше</button>
 
     </div>
 
@@ -100,60 +128,346 @@
         // https://vfrsute.ru/%D1%81%D0%BA%D0%B0%D0%BD%D0%B2%D0%BE%D1%80%D0%B4/%D1%81%D0%BB%D0%BE%D0%B2%D0%BE-%D0%B8%D0%B7-3-%D0%B1%D1%83%D0%BA%D0%B2/
         const words = {
 
-            three: [
-                'аул', 'бак', 'воз', 'гол', 'дым', 'ель', 'жук', 'зло', 'имя', 'кот', 'лев', 'мыс', 'нос', 'оба', 'пуд'
+            3: [
+                'аул', 'бак'
+                // , 'воз', 'гол', 'дым', 'ель', 'жук', 'зло', 'имя', 'кот', 'лев', 'мыс', 'нос', 'оба', 'пуд'
+            ],
+            4: [
+                'жопа', 'пися'
             ]
 
         };
 
-        console.log(words.three);
-        
+        // console.log(words[3]);
 
-        const parent = document.querySelector('.moveword__parent');
-        const elems = document.querySelectorAll('.moveword__elems');
+        // const old = {};
+        // let num = 0;
+        // let set = '';
+        // let count = 0;
+        // let example;
+
+        // const start = document.querySelector('.moveword__start');
+        // const more = document.querySelector('.moveword__more');
+        // const again = document.querySelector('.moveword__again');
+
+        // start.addEventListener('click', () => {
+
+        //     startPlay(true);
+
+        // });
 
 
+        function startPlay(argBool) {
 
-        elems.forEach((elem, i) => {
+            // createElem('div', 'moveword__parent', '', '.moveword__field');
 
-            elem.addEventListener('dragstart', (event) => {
+            // createElem('div', 'moveword__panel', '', '.moveword__field');
 
-                event.dataTransfer.setData('data4', i);
+            // const lettersCount = Number(findSelectedOption().value);
+
+            // count = lettersCount;
+            // console.log('count', count);
+
+
+            // const word = getWord(lettersCount);
+
+
+            console.log('word', word);
+
+            if (!word) {
+               num = 0;
+                set = '';
+                example = '';
+                setNewSelectedOption()
+ 
+
+                startPlay(true);
+
+                // return;
+
+
+            }
+
+
+            // example = word;
+
+            // const arrLetters = getArrFromStr(word);
+
+            // const arrShuffledLetters = shuffleLetters(arrLetters);
+
+            // addShuffledLetters(arrShuffledLetters);
+
+            if (argBool) {
+
+                // addEventListeners();
+
+            }
+
+        };
+
+
+        function addEventListeners() {
+
+            // start.classList.add('dn');
+            // more.classList.add('db');
+            // again.classList.add('db');
+
+            // const parent = document.querySelector('.moveword__parent');
+
+            // const elems = document.querySelectorAll('.moveword__elems');
+
+            // const field = document.querySelector('.moveword__field');
+
+            // elems.forEach((elem, i) => {
+
+            //     elem.addEventListener('dragstart', (event) => {
+
+            //         event.dataTransfer.setData('data-index', i);
+
+            //         event.dataTransfer.setData('data-letter', elem.innerHTML);
+
+
+            //     });
+
+            // });
+
+
+            // parent.addEventListener('dragover', (event) => {
+
+            //     event.preventDefault();
+
+            // });
+
+            // parent.addEventListener('drop', (event) => {
+
+            //     parent.appendChild(elems[event.dataTransfer.getData('data-index')]);
+
+            //     addLetterInSet(event.dataTransfer.getData('data-letter'));
+
+                // if (getCountLetters() === count) {
+
+                //     console.log(example, set);
+
+
+                    // if (isCoincidence(example, set)) {
+
+                    //     addBorder(true);
+
+                    //     more.disabled = false;
+
+                    //     // num++;
+
+                    // } else {
+
+                    //     addBorder(false);
+
+                    // }
+
+            //     }
+
+            // });
+
+            again.addEventListener('click', () => {
+
+                start.classList.add('dn');
+                more.classList.add('db');
+                again.classList.add('db');
+
+                field.innerHTML = '';
+
+                let oldCount = count;
+
+                let oldExample = example;
+
+                let oldNum = num;
+
+                console.log(oldNum, oldCount, oldExample);
+
+                startPlay(true);
+
+                set = '';
+
+                num = oldNum;
+
+                count = oldCount;
+
+                example = oldExample;
 
             });
 
-        });
+            more.addEventListener('click', () => {
+
+                field.innerHTML = '';
+                console.log(num);
+
+                num++;
+                set = '';
+                count = 0;
+                example = '';
+
+                more.disabled = true;
+
+                startPlay(true);
 
 
+            });
 
-        parent.addEventListener('dragover', (event) => {
-
-            event.preventDefault();
-
-        });
-
-
-        parent.addEventListener('drop', (event) => {
-
-            parent.appendChild(elems[event.dataTransfer.getData('data4')]);
-
-            // parent.p(parent.firstChild);
-
-        });
-
-
-
-
-
-        function shuffle(argArr) {
-
-            function compareRandom(a, b) {
-                return Math.random() - 0.5;
-            }
-
-            return argArr.sort(compareRandom);
 
         };
+
+
+        // function addBorder(arg) {
+
+        //     const elem = document.querySelector('.moveword__parent');
+        //     const elems = document.querySelectorAll('.moveword__elems');
+
+        //     if (arg) {
+
+        //         elem.classList.add('green');
+
+        //     } else {
+
+        //         elem.classList.add('red');
+
+        //     }
+
+        //     elems.forEach(item => {
+
+        //         if (arg) {
+
+        //             item.classList.add('none');
+
+        //         } else {
+
+        //             item.classList.add('none');
+
+        //         }
+
+        //     });
+
+        // };
+
+
+        // function getCountLetters() {
+
+        //     return document.querySelector('.moveword__parent').childNodes.length;
+
+        // };
+
+
+        function isCoincidence(argStr1, argStr2) {
+
+            return argStr1 === argStr2;
+
+        };
+
+
+        // function addLetterInSet(argStr) {
+
+        //     set += argStr;
+
+        // };
+
+
+        // function addShuffledLetters(argArr) {
+
+        //     console.log(argArr);
+
+        //     argArr.forEach(elem => {
+
+        //         createElem('div', 'moveword__elems', elem, '.moveword__panel', true);
+
+        //     });
+
+        // };
+
+
+        // function createElem(argElem, argClass, argInner, argParent, argDrag) {
+
+        //     const elem = document.createElement(argElem);
+
+        //     elem.classList.add(argClass);
+
+        //     elem.innerHTML = argInner;
+
+        //     if (argDrag) {
+
+        //         elem.draggable = "true"
+
+        //     }
+
+        //     const parent = document.querySelector(argParent);
+
+        //     parent.appendChild(elem);
+
+        // };
+
+
+        // function shuffleLetters(argArr) {
+
+        //     function compareRandom(a, b) {
+        //         return Math.random() - 0.5;
+        //     }
+
+        //     return argArr.sort(compareRandom);
+
+        // };
+
+
+        // function getArrFromStr(argStr) {
+
+        //     return argStr.split('');
+
+        // };
+
+
+        // function getWord(argNum) {
+
+        //     // num++;
+
+        //     return words[argNum][num];
+
+        // };
+
+
+        // function findSelectedOption() {
+
+        //     const select = document.querySelector('.moveword__select');
+        //     const allOptions = select.querySelectorAll('option');
+
+        //     return [...allOptions].find(elem => elem.selected === true);
+
+        // };
+
+        function setNewSelectedOption() {
+
+            const select = document.querySelector('.moveword__select');
+            const allOptions = select.querySelectorAll('option');
+
+            const lettersCount = Number([...allOptions].find(elem => elem.selected === true).value);
+
+            allOptions[lettersCount].selected = false;
+
+// console.log('lettersCount', lettersCount+1);
+
+
+            allOptions[lettersCount + 1].selected = true;
+
+        };
+
+        // console.log(setNewSelectedOption());
+        
+
+
+        // function shuffle(argArr) {
+
+        //     function compareRandom(a, b) {
+        //         return Math.random() - 0.5;
+        //     }
+
+        //     return argArr.sort(compareRandom);
+
+        // };
 
         function getRandWord(argArr) {
 
@@ -168,6 +482,34 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
 
         };
+
+
+
+//////////////////////////////////////
+
+
+
+// var listeners = {};
+
+// var originalEventListener = window.addEventListener;
+// window.addEventListener = function (type, fn, options) {
+//     if (!listeners[type])
+//         listeners[type] = [];
+
+//     listeners[type].push(fn);
+//     return originalEventListener(type, fn, options);
+// }
+
+// var removeAllEventListener = function (type) {
+//     if (!listeners[type] || !listeners[type].length)
+//         return;
+
+//     for (let i = 0; i < listeners[type].length; i++)
+//         window.removeEventListener(type, listeners[type][i]);
+// }
+
+////////////////////////
+
 
     </script>
 </body>
