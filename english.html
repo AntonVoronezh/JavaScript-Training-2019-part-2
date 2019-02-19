@@ -439,6 +439,20 @@ console.log(getSubstantives());
         };
 
 
+        function readTextFile(file, callback, result) {
+            var rawFile = new XMLHttpRequest();
+            rawFile.overrideMimeType("text/html");
+            rawFile.open("GET", file, true);
+            rawFile.onreadystatechange = function () {
+                if (rawFile.readyState === 4 && rawFile.status == "200") {
+                    callback(rawFile.responseText, result);
+                }
+            }
+            rawFile.send(null);
+            // Эта функция также работает для загрузки файлов .html или .txt 
+            // путем переопределения параметра типа mime на "text/html", "text/plain" и т.д.
+            // application/json
+        }
 
 
 
