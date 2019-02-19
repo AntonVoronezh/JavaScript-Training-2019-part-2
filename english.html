@@ -379,7 +379,25 @@ console.log(getSubstantives());
         };
 
 
+        function getWords(argRan, argNum, argArr, argCount) {
 
+            let result;
+
+            if (argRan.checked) {
+
+                result = getRandWord(argArr);
+
+            }
+
+            if (argNum.checked) {
+
+                result = argArr[argCount()];
+
+            }
+
+            return result;
+
+        };
 
 
 
