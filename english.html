@@ -357,6 +357,20 @@ console.log(getSubstantives());
 
 
 
+        function selectLang(argRadio1, argRadio2, argLang1, argLang2, argElem1, argElem2) {
+
+            if (argRadio1.checked) {
+
+                argElem2.innerHTML = '';
+
+                argElem1.innerHTML = `<a href="https://translate.yandex.ru/?lang=en-ru&text=${argLang1}"
+                    target="blank">${argLang1}</a>`;
+
+            }
+
+
+        };
+
 
 
 
