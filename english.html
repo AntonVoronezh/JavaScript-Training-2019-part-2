@@ -309,6 +309,23 @@ console.log(getSubstantives());
 
             }
 
+            argBtn.addEventListener('click', () => {
+
+                argRes.classList.remove('red');
+
+                if (checkWords(argInp.value, argWord1) || checkWords(argInp.value, argWord2)) {
+
+                    argRes.innerHTML = 'YES';
+
+                } else {
+
+                    argRes.innerHTML = 'NO';
+
+                    argRes.classList.add('red');
+
+                }
+
+            });
 
 
             argBtn2.addEventListener('click', () => {
