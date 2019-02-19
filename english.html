@@ -291,7 +291,28 @@ console.log(getSubstantives());
         };
 
 
+        function checkSpell(argCheck, argInp, argBtn, argBtn2, argRes, argWord1, argWord2) {
 
+            if (argCheck.checked) {
+
+                argInp.classList.remove('none');
+                argBtn.classList.remove('none');
+                argBtn2.classList.remove('none');
+                argRes.classList.remove('none');
+
+            } else {
+
+                argInp.classList.add('none');
+                argBtn.classList.add('none');
+                argBtn2.classList.add('none');
+                argRes.classList.add('none');
+
+            }
+
+
+
+
+        };
 
 
 
