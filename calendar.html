@@ -354,6 +354,22 @@
         // console.log(getLastDayOfMonth(2016, 1));
 
 
+        function setupDates(argDate) {
+
+            if (argDate === undefined) {
+                argDate = dateInint;
+            }
+
+            return {
+                year: argDate.getFullYear(),
+                month: argDate.getMonth(),
+                day: argDate.getDay(),
+                date: argDate.getDate()
+            };
+
+        };
+        // console.log(setupDates().year);
+
 
 
 
