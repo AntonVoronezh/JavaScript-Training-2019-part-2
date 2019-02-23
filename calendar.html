@@ -192,7 +192,35 @@
         };
 
 
+        function makeTableFromArr(argArr, argElem, argDate, argYear, argMonth) {
 
+            for (let i = 0; i < argArr.length; i += 1) {
+
+                const tr = document.createElement('tr');
+
+                for (let j = 0; j < argArr[i].length; j += 1) {
+
+                    const td = document.createElement('td');
+
+                    td.innerHTML = argArr[i][j];
+
+                    td.classList.add('calendar__item');
+
+                    if (argArr[i][j] === argDate && argYear === year && argMonth === month) {
+
+                        td.classList.add('calendar__item--active');
+
+                    }
+
+                    tr.appendChild(td);
+
+                }
+
+                argElem.appendChild(tr);
+
+            }
+
+        };
 
 
 
