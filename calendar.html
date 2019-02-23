@@ -223,6 +223,25 @@
         };
 
 
+        function chunkArr(argArr) {
+
+            const result = [];
+            let chunk = [];
+
+            let count = argArr.length / 7;
+
+            for (let i = 0; i < count; i += 1) {
+
+                chunk = argArr.splice(0, 7);
+
+                result.push(chunk);
+
+            }
+
+            return result;
+
+        };
+
 
 
 
