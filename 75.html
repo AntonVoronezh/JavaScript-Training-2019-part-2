@@ -183,6 +183,40 @@
     <hr>
 
 
+    <h3>Задача 7. Дан массив. С помощью функции-генератора создайте итератор,
+        перебирающий элементы массива с конца.</h3>
+
+    <script>
+
+        const iterator7 = createIterator7([71, 72, 73]);
+
+
+
+        function* createIterator7(argArr) {
+
+            argArr.reverse();
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+                yield argArr[i];
+
+            }
+
+        }
+
+        console.log('7', iterator7.next());
+        console.log('7', iterator7.next());
+        console.log('7', iterator7.next());
+        console.log('7', iterator7.next());
+
+
+
+    </script>
+    <hr>
+
+
+
+
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
 
