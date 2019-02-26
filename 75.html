@@ -153,6 +153,34 @@
 
 
 
+    <h3>Задача 6. Дан массив. С помощью функции-генератора создайте итератор,
+        перебирающий элементы массива по одному.</h3>
+
+    <script>
+
+        const iterator6 = createIterator6([61, 62, 63]);
+
+
+
+        function* createIterator6(argArr) {
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+                yield argArr[i];
+
+            }
+
+        }
+
+        console.log('6', iterator6.next());
+        console.log('6', iterator6.next());
+        console.log('6', iterator6.next());
+        console.log('6', iterator6.next());
+
+
+
+    </script>
+    <hr>
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
