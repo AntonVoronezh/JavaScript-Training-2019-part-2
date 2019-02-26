@@ -161,7 +161,34 @@
     </script>
     <hr>
 
+    <h3>Задача 5. Переделайте предыдущую задачу так, чтобы ключ-символ
+        для функции задавался через Symbol.for.</h3>
 
+    <script>
+
+        let arr5 = [1, 2, 3, 4, 9];
+
+        const func5 = Symbol.for('func5');
+
+        arr5[func5] = function () {
+
+
+
+            let sum = 0;
+
+            for (let key in arr4) {
+
+                sum += arr5[key];
+
+            }
+
+            return sum
+        };
+
+        console.log(arr5[func5]());
+
+    </script>
+    <hr>
 
 
   
