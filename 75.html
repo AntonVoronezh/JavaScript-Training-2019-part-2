@@ -214,6 +214,39 @@
     </script>
     <hr>
 
+    <h3>Задача 8. Дан массив. С помощью функции-генератора создайте итератор,
+        каждый вызов которого будет возвращать по два элемента массива
+        (сначала первые два, потом вторые два и так далее).
+        Элементы должны возвращаться в виде массива из двух элементов.</h3>
+
+    <script>
+
+        const iterator8 = createIterator8([81, 82, 83, 84, 85, 86]);
+
+
+
+        function* createIterator8(argArr) {
+
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+                yield [argArr[i], argArr[i + 1]];
+
+                argArr.splice(0, 1);
+
+            }
+
+        }
+
+        console.log('8', iterator8.next());
+        console.log('8', iterator8.next());
+        console.log('8', iterator8.next());
+        console.log('8', iterator8.next());
+
+
+
+    </script>
+    <hr>
 
 
 
