@@ -283,7 +283,40 @@
     </script>
     <hr>
 
- 
+    <h3>Задача 10. Дан массив с числами. С помощью функции-генератора создайте итератор,
+        каждый вызов которого будет возвращать следующее число Фибоначчи.</h3>
+
+    <script>
+
+        const iterator10 = createIterator10([1, 4, 7, 11, 18]);
+
+
+
+        function* createIterator10(argArr) {
+
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+                if (argArr[i - 1]) {
+
+                    yield (argArr[i] + argArr[i - 1]);
+
+                }
+
+
+            }
+
+        }
+
+
+        console.log('10', iterator10.next());
+        console.log('10', iterator10.next());
+        console.log('10', iterator10.next());
+        console.log('10', iterator10.next());
+
+
+    </script>
+    <hr>
 
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
