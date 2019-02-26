@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Тип Symbol</h2>
+
+    <h3>Задача 1. Пусть дан объект. Создайте символ и добавьте в объект еще один элемент,
+        ключом которого будет созданный символ, а значением - какая-нибудь строка.
+        Переберите объект через цикл for-in, убедитесь в том, что новый элемент не
+        появляется при переборе.</h3>
+
+    <script>
+
+        const obj1 = { a: 1, b: 2 };
+
+        const sym1 = Symbol();
+
+        obj1[sym1] = 'aaa';
+
+        for (let elem in obj1) {
+
+            console.log(obj1[elem]);
+
+
+        }
+
+        console.log(obj1[sym1]);
+
+
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 2. Пусть дан объект. Добавьте в него еще один элемент,
+        значением которого будет функция, выводящая на экран '!',
+        а ключом - созданный вами символ.</h3>
+
+    <script>
+
+        const obj2 = { a: 1, b: 2 };
+
+        const sym2 = Symbol();
+
+        obj2[sym2] = () => alert('!');
+
+
+        console.log(obj2[sym2]);
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 3. Пусть дан объект, ключами которого являются какие-то строки,
+        а значением - числа. Добавьте в наш объект функцию, которая будучи вызванной
+        будет возвращать сумму элементов нашего объекта.</h3>
+
+    <script>
+
+        let obj3 = {
+            a: 1,
+            b: 2,
+            c: 3
+
+        }
+
+        const func3 = Symbol();
+
+        obj3[func3] = function () {
+
+            let sum = 0;
+
+            for (let key in obj3) {
+
+                sum += obj3[key];
+
+            }
+
+            return sum
+        };
+
+        console.log(obj3[func3]());
+
+    </script>
+    <hr>
+
+    <h3>Задача 4. Пусть дан массив с числами. Добавьте в этот массив функцию,
+        которая будет возвращать сумму элементов этого массива. Сделайте так, чтобы наша функция имела символьный ключ.
+    </h3>
+
+    <script>
+
+        let arr4 = [1, 2, 3, 4];
+
+        const func4 = Symbol();
+
+        arr4[func4] = function () {
+
+            let sum = 0;
+
+            for (let key in arr4) {
+
+                sum += arr4[key];
+
+            }
+
+            return sum
+        };
+
+        console.log(arr4[func4]());
+
+    </script>
+    <hr>
+
+    <h3>Задача 5. Переделайте предыдущую задачу так, чтобы ключ-символ
+        для функции задавался через Symbol.for.</h3>
+
+    <script>
+
+        let arr5 = [1, 2, 3, 4, 9];
+
+        const func5 = Symbol.for('func5');
+
+        arr5[func5] = function () {
+
+
+
+            let sum = 0;
+
+            for (let key in arr4) {
+
+                sum += arr5[key];
+
+            }
+
+            return sum
+        };
+
+        console.log(arr5[func5]());
+
+    </script>
+    <hr>
+
+
+  
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
