@@ -108,6 +108,28 @@
 
     <h2>Введение в функции-генераторы ES6</h2>
 
+    <h3>Задача 4. Сделайте функцию-генератор, которая будет возвращать итератор.
+        Первый вызов метода next итератора должен вернуть 1, второй вызов - 2, третий вызов - 3.</h3>
+
+    <script>
+
+        const iterator = createIterator([11, 22, 33]);
+
+        console.log('4', iterator.next());
+        console.log('4', iterator.next());
+        console.log('4', iterator.next());
+        console.log('4', iterator.next());
+
+        function* createIterator() {
+            yield 1;
+            yield 2;
+            yield 3;
+        }
+
+
+
+    </script>
+    <hr>
 
  
 
