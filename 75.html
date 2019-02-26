@@ -70,6 +70,27 @@
     </script>
     <hr>
 
+    <h3>Задача 2. Даны абзацы. Получите их через querySelectorAll,
+        переберите через цикл for-of, добавьте каждому абзацу в конец текста восклицательный знак.</h3>
+
+    <p class="p2">1</p>
+    <p class="p2">2</p>
+    <p class="p2">3</p>
+    <p class="p2">4</p>
+
+    <script>
+
+        const allP = document.querySelectorAll('.p2');
+
+        for (let elem of allP) {
+
+            elem.innerHTML += '!';
+
+        }
+
+
+    </script>
+    <hr>
 
  
 
