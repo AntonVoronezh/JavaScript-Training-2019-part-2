@@ -249,6 +249,42 @@
     <hr>
 
 
+    <h3>Задача 9. Дан массив с числами. С помощью функции-генератора создайте итератор,
+        каждый вызов которого будет возвращать следующий элемент массива,
+        являющийся четным числом.</h3>
+
+    <script>
+
+        const iterator9 = createIterator9([91, 92, 93, 94, 95, 96]);
+
+
+
+        function* createIterator9(argArr) {
+
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+                if (argArr[i] % 2 === 0) {
+
+                    yield argArr[i];
+                }
+
+            }
+
+        }
+
+        console.log('9', iterator9.next());
+        console.log('9', iterator9.next());
+        console.log('9', iterator9.next());
+        console.log('9', iterator9.next());
+
+
+
+    </script>
+    <hr>
+
+ 
+
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
