@@ -417,7 +417,32 @@
 
 
 
- 
+    <h3>Задача 14.Дан массив. Получите массив ключей этого массива.
+        Найдите сумму элементов этого нового полученного массива.</h3>
+
+    <script>
+
+        const arr14 = [100, 200, 300];
+
+        const iterator14 = arr14.keys();
+
+        const res14 = [];
+
+        for (let key of iterator14) {
+
+            res14.push(key);
+
+
+        }
+
+        console.log('14', res14.reduce((a, b) => a + b));
+
+
+
+    </script>
+    <hr>
+
+
     
 
 
