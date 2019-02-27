@@ -693,7 +693,35 @@
     <hr>
 
 
+    <h3>Задача 25. Даны абзацы и кнопка. Сделайте так, чтобы по нажатию на кнопку в 
+        конец каждого абзаца добавился его порядковый номер.</h3>
 
+        <p class="p25">1</p>
+        <p class="p25">2</p>
+        <p class="p25">3</p>
+
+
+
+    <script>
+
+        function func25() {
+
+            const allP25 = document.querySelectorAll('.p25');
+
+            const iterator = allP25.entries();
+
+            for (let [num, {innerHTML:text}] of iterator) {
+
+                console.log(num, text);
+
+            }
+
+        };
+
+        func25();
+
+    </script>
+    <hr>
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
