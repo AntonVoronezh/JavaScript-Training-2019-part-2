@@ -318,6 +318,410 @@
     </script>
     <hr>
 
+    <h2>Создаем итератор объекта с помощью генератора ES6</h2>
+
+    <h3>Задача 11. Дан объект. С помощью функции-генератора создайте его итератор,
+        переберите элементы этого объекта с помощью цикла for-of.</h3>
+
+    <script>
+
+
+
+        const iterator11 = createIterator11({ a: 'a1', b: 'b2', c: 'c3' });
+
+
+
+        function* createIterator11(argArr) {
+
+            for (let key in argArr) {
+
+                yield argArr[key];
+
+            }
+
+        }
+
+        for (let key of iterator11) {
+
+            console.log(key);
+
+
+        }
+
+
+
+    </script>
+    <hr>
+
+    <h2>Создание итерируемых объектов на ES6</h2>
+
+
+    <h3>Задача 12. Дан объект. Сделайте так, чтобы его элементы можно
+        было перебрать с помощью цикла for-of.</h3>
+
+    <script>
+
+
+
+        const obj12 = {
+
+            a: 1,
+            b: 2,
+            c: 3,
+            *[Symbol.iterator]() {
+
+                for (let key in this) {
+
+                    yield this[key];
+
+                }
+
+            }
+
+        };
+
+
+        for (let elem of obj12) {
+            console.log('12', elem);
+
+        }
+
+
+
+    </script>
+    <hr>
+
+    <h2>Встроенные итераторы коллекций values, keys и entries</h2>
+
+    <h3>Задача 13. Дан массив. Переберите элементы этого массива через цикл for-of так,
+        чтобы в каждой итерации в переменную elem записывался элемент массива,
+        а в переменную key - ключ.</h3>
+
+    <script>
+
+        const arr13 = [100, 200, 300];
+
+        const iterator13 = arr13.entries();
+
+        for (let [elem, key] of iterator13) {
+
+            console.log('13', elem, key);
+
+
+        }
+
+
+
+    </script>
+    <hr>
+
+
+
+    <h3>Задача 14.Дан массив. Получите массив ключей этого массива.
+        Найдите сумму элементов этого нового полученного массива.</h3>
+
+    <script>
+
+        const arr14 = [100, 200, 300];
+
+        const iterator14 = arr14.keys();
+
+        const res14 = [];
+
+        for (let key of iterator14) {
+
+            res14.push(key);
+
+
+        }
+
+        console.log('14', res14.reduce((a, b) => a + b));
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 15.Дана коллекция Map. Получите массив ее ключей.</h3>
+
+    <script>
+
+        const arr15 = new Map();
+
+        arr15.set(1, 'aaa');
+        arr15.set(2, 'bbb');
+        arr15.set(3, 'ccc');
+
+
+        const iterator15 = arr15.keys();
+
+
+        for (let key of iterator15) {
+
+            console.log(key);
+
+        }
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 16. Дана коллекция Map. Получите массив ее значений.</h3>
+
+    <script>
+
+        const arr16 = new Map();
+
+        arr16.set(1, 'aaa');
+        arr16.set(2, 'bbb');
+        arr16.set(3, 'ccc');
+
+
+        const iterator16 = arr16.values();
+
+
+        for (let key of iterator16) {
+
+            console.log(key);
+
+        }
+
+
+
+
+    </script>
+    <hr>
+
+    <h2>Встроенные итераторы строк</h2>
+
+
+    <h3>Задача 17. Дана строка. Переберите ее посимвольно циклом for-of.</h3>
+
+    <script>
+
+        const str17 = 'lorem';
+
+        for (let elem of str17) {
+
+            console.log(elem);
+
+        }
+
+
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 18. Дано число. С помощью цикла for-of получите сумму его цифр.</h3>
+
+    <script>
+
+        const str18 = 123456;
+
+        let sum = 0;
+
+        for (let elem of String(str18)) {
+
+            sum += +elem;
+
+        }
+
+        console.log('18', sum);
+
+
+    </script>
+    <hr>
+
+    <h2>Оператор spread и итераторы</h2>
+
+    <h3>Задача 19. Дана коллекция DOM элементов. Преобразуйте ее в массив.</h3>
+
+    <div class="div19">1</div>
+    <div class="div19">2</div>
+    <div class="div19">3</div>
+    <div class="div19">4</div>
+    <div class="div19">5</div>
+
+    <script>
+
+        const allDiv19 = document.querySelectorAll('.div19');
+
+        const arr19 = [...allDiv19];
+
+        console.log('19', arr19);
+
+
+
+    </script>
+    <hr>
+
+    <h3>Задача 20. Дан объект. Сделайте так, чтобы к нему можно было применить
+        оператор spread и при этом возвращались значения объекта.</h3>
+
+
+    <script>
+
+        const obj20 = {
+            a: 1, b: 10, c: 100,
+            *[Symbol.iterator]() {
+
+                for (let key in this) {
+
+                    yield this[key];
+
+                }
+
+            }
+        };
+
+        console.log([...obj20]);
+
+
+
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 21. Дан объект. Сделайте так, чтобы к нему можно было применить
+        оператор spread и при этом возвращались ключи объекта.</h3>
+
+
+    <script>
+
+        const obj21 = {
+            a: 1, b: 10, c: 100,
+            *[Symbol.iterator]() {
+
+                for (let key in this) {
+
+                    yield key;
+
+                }
+
+            }
+        };
+
+        console.log([...obj21]);
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 22. Сделайте функцию, которая параметром будет принимать строку,
+        а возвращать массив ее символов.</h3>
+
+
+    <script>
+
+        function func22(argStr) {
+
+            const result = [];
+
+            for (let key of argStr) {
+
+                result.push(key);
+
+            }
+
+            return result;
+
+        };
+
+        console.log(func22('dgfsdfgdfhgfhdhdfgd'));
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 23. Сделайте функцию, которая параметром будет принимать строку и
+        выполнять переворот этой строки так, чтобы символы шли в обратном порядке.</h3>
+
+
+    <script>
+
+        function func23(argStr) {
+
+            let result;
+
+            argStr.split('').reverse()
+
+            for (let key of argStr) {
+
+                result += key;
+
+            }
+
+            return result;
+
+
+        };
+
+        console.log(func23('abcd'));
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 24. Дано число. Найдите сумму цифр этого числа.</h3>
+
+
+    <script>
+
+        function func24(argNum) {
+
+            let result = 0;
+
+            for (let key of String(argNum)) {
+
+                result += +key;
+
+            }
+
+            return result;
+
+        };
+
+        console.log(func24(12345));
+
+    </script>
+    <hr>
+
+
+    <h3>Задача 25. Даны абзацы и кнопка. Сделайте так, чтобы по нажатию на кнопку в 
+        конец каждого абзаца добавился его порядковый номер.</h3>
+
+        <p class="p25">1</p>
+        <p class="p25">2</p>
+        <p class="p25">3</p>
+
+
+
+    <script>
+
+        function func25() {
+
+            const allP25 = document.querySelectorAll('.p25');
+
+            const iterator = allP25.entries();
+
+            for (let [num, {innerHTML:text}] of iterator) {
+
+                console.log(num, text);
+
+            }
+
+        };
+
+        func25();
+
+    </script>
+    <hr>
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>

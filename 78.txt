@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Цепочки промисов</h2>
+
+    <h3>Задача 1. Сделайте цепочку из трех промисов. Пусть первый промис возвращает число.
+        Сделайте так, чтобы каждый последующий промис через 3 секунды возводил в квадрат
+        результат предыдущего промиса. После окончания манипуляций выведите число алертом на экран.</h3>
+
+    <script>
+
+        const promise3 = new Promise((resolve, reject) => {
+
+            const num = getRandomInt(1, 10);
+
+            console.log('1', num);
+
+            setTimeout(() => {
+
+                resolve(num);
+
+            }, 3000);
+
+        });
+
+
+
+        promise3
+            .then(
+
+                num => new Promise((resolve, reject) => {
+
+                    console.log('2', num * 2);
+
+                    setTimeout(() => {
+
+                        resolve(num * 2);
+
+                    }, 3000);
+
+                })
+
+            )
+            .then(
+
+                num => new Promise((resolve, reject) => {
+
+                    console.log('3', num * 3);
+
+                    setTimeout(() => {
+
+                        resolve(num * 3);
+
+                    }, 3000);
+
+                })
+
+            )
+            .then(
+
+                num => console.log('end', num)
+                
+
+            );
+
+
+
+
+        function getRandomInt(min, max) {
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        };
+
+
+
+    </script>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
