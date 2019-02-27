@@ -639,6 +639,34 @@
     <hr>
 
 
+    <h3>Задача 23. Сделайте функцию, которая параметром будет принимать строку и
+        выполнять переворот этой строки так, чтобы символы шли в обратном порядке.</h3>
+
+
+    <script>
+
+        function func23(argStr) {
+
+            let result;
+
+            argStr.split('').reverse()
+
+            for (let key of argStr) {
+
+                result += key;
+
+            }
+
+            return result;
+
+
+        };
+
+        console.log(func23('abcd'));
+
+    </script>
+    <hr>
+
 
 
 
