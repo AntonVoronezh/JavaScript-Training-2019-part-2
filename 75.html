@@ -356,6 +356,40 @@
     <h2>Создание итерируемых объектов на ES6</h2>
 
 
+    <h3>Задача 12. Дан объект. Сделайте так, чтобы его элементы можно
+        было перебрать с помощью цикла for-of.</h3>
+
+    <script>
+
+
+
+        const obj12 = {
+
+            a: 1,
+            b: 2,
+            c: 3,
+            *[Symbol.iterator]() {
+
+                for (let key in this) {
+
+                    yield this[key];
+
+                }
+
+            }
+
+        };
+
+
+        for (let elem of obj12) {
+            console.log('12', elem);
+
+        }
+
+
+
+    </script>
+    <hr>
 
  
 
