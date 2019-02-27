@@ -391,7 +391,31 @@
     </script>
     <hr>
 
- 
+    <h2>Встроенные итераторы коллекций values, keys и entries</h2>
+
+    <h3>Задача 13. Дан массив. Переберите элементы этого массива через цикл for-of так,
+        чтобы в каждой итерации в переменную elem записывался элемент массива,
+        а в переменную key - ключ.</h3>
+
+    <script>
+
+        const arr13 = [100, 200, 300];
+
+        const iterator13 = arr13.entries();
+
+        for (let [elem, key] of iterator13) {
+
+            console.log('13', elem, key);
+
+
+        }
+
+
+
+    </script>
+    <hr>
+
+
 
  
     
