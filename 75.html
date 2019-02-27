@@ -560,7 +560,34 @@
     </script>
     <hr>
 
-  
+    <h3>Задача 20. Дан объект. Сделайте так, чтобы к нему можно было применить
+        оператор spread и при этом возвращались значения объекта.</h3>
+
+
+    <script>
+
+        const obj20 = {
+            a: 1, b: 10, c: 100,
+            *[Symbol.iterator]() {
+
+                for (let key in this) {
+
+                    yield this[key];
+
+                }
+
+            }
+        };
+
+        console.log([...obj20]);
+
+
+
+
+    </script>
+    <hr>
+
+
 
 
 
