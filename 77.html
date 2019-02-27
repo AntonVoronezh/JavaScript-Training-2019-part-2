@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Метод catch</h2>
+
+    <h3>Задача 1.Сделайте промис, который через 5 секунд случайным образом выполнится или с успехом,
+        или с ошибкой. Примените изученный метод catch для отлавливания ошибок.</h3>
+
+    <script>
+
+        const promise3 = new Promise((resolve, reject) => {
+
+            let i = 0;
+
+            start();
+
+            function start() {
+
+                const num = getRandomInt(1, 10);
+
+                console.log('3', num);
+
+
+                setTimeout(() => {
+
+                    if (num <= 5) {
+
+                        resolve('result');
+
+                    } else {
+
+                        reject('error');
+
+                    }
+
+
+
+                }, num * 500);
+
+            };
+
+        });
+
+
+
+        promise3
+            .then(
+
+                result => { console.log('3 - ok'); },
+
+            )
+            .catch(
+
+                error => { console.log('3 - no'); }
+
+            );
+
+        alert("3");
+
+
+        function getRandomInt(min, max) {
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        };
+
+
+
+    </script>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
