@@ -318,6 +318,51 @@
     </script>
     <hr>
 
+    <h2>Создаем итератор объекта с помощью генератора ES6</h2>
+
+    <h3>Задача 11. Дан объект. С помощью функции-генератора создайте его итератор,
+        переберите элементы этого объекта с помощью цикла for-of.</h3>
+
+    <script>
+
+
+
+        const iterator11 = createIterator11({ a: 'a1', b: 'b2', c: 'c3' });
+
+
+
+        function* createIterator11(argArr) {
+
+            for (let key in argArr) {
+
+                yield argArr[key];
+
+            }
+
+        }
+
+        for (let key of iterator11) {
+
+            console.log(key);
+
+
+        }
+
+
+
+    </script>
+    <hr>
+
+    <h2>Создание итерируемых объектов на ES6</h2>
+
+
+
+ 
+
+ 
+    
+
+
 
     <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
 </body>
