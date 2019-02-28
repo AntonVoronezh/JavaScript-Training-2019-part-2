@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Работа с Promise.race</h2>
+
+    <h3>Задача 1. Сделайте 3 промиса, в каждом из которых расположена функция 
+        setTimeout со случайно задержкой от 1 до 5 секунд. Пусть первый промис
+         возвращает число 1, второй - число 2, третий - число 3. С помощью Promise.race 
+         дождитесь загрузки первого сработавшего промиса и выведите результат его работы на экран.</h3>
+
+    <script>
+
+        const promise1 = new Promise((resolve, reject) => {
+
+            const num = getRandomInt(1, 5);
+
+            console.log('1', num);
+
+            setTimeout(() => {
+
+                return resolve(1);
+
+            }, num * 1000);
+
+        });
+
+        const promise2 = new Promise((resolve, reject) => {
+
+            const num = getRandomInt(1, 5);
+
+            console.log('2', num);
+
+            setTimeout(() => {
+
+                return resolve(2);
+
+            }, num * 1000);
+        });
+
+        const promise3 = new Promise((resolve, reject) => {
+
+            const num = getRandomInt(1, 5);
+
+            console.log('3', num);
+
+            setTimeout(() => {
+
+                return resolve(3);
+
+            }, num * 1000);
+
+        });
+
+
+
+        Promise.race([promise1, promise2, promise3])
+            .then(
+                
+                res =>console.log( res)
+                
+            );
+
+
+
+
+        function getRandomInt(min, max) {
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        };
+
+
+
+    </script>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
