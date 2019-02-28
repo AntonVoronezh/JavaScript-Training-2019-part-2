@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            margin-right: 30px;
+            /* max-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; */
+
+        }
+
+        .small {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000000;
+            /* position: absolute;
+            top: 200px;
+            left: 30px; */
+        }
+
+        .panel {
+            border: 1px solid green;
+            width: 400px;
+            height: 200px;
+            display: flex;
+        }
+
+        .parent {
+            width: 150px;
+            height: 150px;
+            border: 1px solid #000000;
+            margin-top: 100px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+
+
+
+
+
+<body>
+    <h1>AntonVoronezh учеба по JavaScript DOM</h1>
+    <h2>Promise async await</h2>
+
+    <h3>Задача 1. Сделайте функцию getNum, которая возвращает промис, который с задержкой
+        в 3 секунды выведет случайное число от 1 до 5. Создайте async функцию, которая
+        с помощью await будет дожидаться результата getNum, затем возводить его в квадрат
+        и выводить на экран.</h3>
+
+    <script>
+
+        function getNum() {
+
+            return new Promise((resolve, reject) => {
+
+                const num = getRandomInt(1, 5);
+
+                console.log('1', num);
+
+                setTimeout(() => {
+
+                    return resolve(num);
+
+                }, num * 1000);
+
+            });
+
+        };
+
+
+        async function func() {
+
+            const result = await getNum();
+
+            console.log(result * result);
+
+
+            return result * result;
+
+        };
+
+
+        func();
+        console.log();
+
+
+
+
+
+
+
+
+
+
+
+        function getRandomInt(min, max) {
+
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+
+        };
+
+
+
+    </script>
+
+    <hr>
+
+
+    <h3>Задача 1. Сделайте функцию getNum1, которая возвращает промис, который с задержкой
+        в 3 секунды выведет случайное число от 1 до 5. Сделайте также функцию getNum2,
+        которая возвращает промис, который с задержкой в 5 секунд выведет случайное
+        число от 6 до 10. Создайте async функцию, которая с помощью await будет дожидаться
+        результата getNum1, затем будет дожидаться результата getNum2, а затем найдет сумму
+        полученных чисел и выведет на экран.</h3>
+
+    <script>
+
+        function getNum1() {
+
+            return new Promise((resolve, reject) => {
+
+                const num = getRandomInt(1, 5);
+
+                console.log('1', num);
+
+                setTimeout(() => {
+
+                    return resolve(num);
+
+                }, num * 1000);
+
+            });
+
+        };
+
+
+        function getNum2() {
+
+            return new Promise((resolve, reject) => {
+
+                const num = getRandomInt(6, 10);
+
+                console.log('2', num);
+
+                setTimeout(() => {
+
+                    return resolve(num);
+
+                }, 5000);
+
+            });
+
+        };
+
+
+        async function func2() {
+
+            const result1 = await getNum1();
+
+            const result2 = await getNum2();
+
+
+            console.log('2', result1 + result2);
+
+
+            // return result * result;
+
+        };
+
+
+        func2();
+
+
+    </script>
+
+
+    <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+</body>
+
+</html>
