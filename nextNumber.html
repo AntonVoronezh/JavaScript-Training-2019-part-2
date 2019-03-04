@@ -83,6 +83,19 @@
             const getBtn = getPlace.querySelector('.btn');
             const elem2 = getPlace.querySelector('.end-time2');
 
+            getBtn.addEventListener('click', function () {
+
+                getTbl.innerHTML = '';
+
+                const elem = getPlace.querySelector('.end-time');
+
+                elem2.style.display = 'none';
+
+                elem.innerHTML = `Осталось <span class="timer">${setup(round).time}</span> секунд`;
+
+                createTable(shuffle(range(1, setup(round).sqr)), round);
+
+            });
 
 
 
