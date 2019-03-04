@@ -193,6 +193,15 @@
                 elem.innerHTML = newNum;
 
 
+                if (newNum === 0) {
+
+                    stopTimer();
+
+                    endGame();
+
+                    // elem.innerHTML = 'Конец игры';
+
+                }
 
             };
 
