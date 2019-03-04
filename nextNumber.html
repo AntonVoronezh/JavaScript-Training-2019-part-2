@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+    <div id="next-number">
+    </div>
+
+    <script>
+        nextNumber();
+
+        function nextNumber() {
+
+            const getElem = document.getElementById('next-number');
+
+            let round = 2;
+
+            init();
+            // createTable(shuffle(range(1, 25)), 5);
+
+            function setup(argNum) {
+
+                return {
+                    sqr: argNum * argNum,
+                    time: argNum * argNum * 2
+                };
+
+                // console.log('000');
+
+
+            };
+
+            // console.log(setup(10).sqr);
+
+
+            function init() {
+
+
+
+                getElem.innerHTML = `<h1>Следующее число </h1>
+            aka AntonVoronezh
+             <br> <br> <br>
+            <table class="tbl"></table><br>
+            <div class="end-time">Осталось <span class="timer">${setup(round).time}</span> секунд</div><br>
+            <div class="end-time2">Ваш результат <span class="result"></span> из ${setup(round).sqr}</div><br>
+            <button class="btn">начать заново</button>
+            `;
+
+                getElem.style.border = '1px solid #000';
+                getElem.style.textAlign = 'center';
+                getElem.style.padding = '20px';
+
+                const getStyle = document.querySelector('style');
+
+
+
+
+                getStyle.innerHTML = getStyle.innerHTML + `
+        .tbl {
+            margin: 0 auto;
+        }
+        .active {
+        background-color: red;
+        color: #fff;
+        }
+        .end {
+        background-color: gray;
+        }`;
+
+
+
+            };
+
+            const getPlace = document.getElementById('next-number');
+            const getTbl = getPlace.querySelector('.tbl');
+            const getBtn = getPlace.querySelector('.btn');
+            const elem2 = getPlace.querySelector('.end-time2');
+
+
+
+
+    
+
+ 
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+        };
+
+
+
+    </script>
+</body>
+
+</html>
