@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .calendar {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 3px;
+        }
+
+        .calendar__item {
+            border: 1px solid #ccc;
+            width: 25px;
+            height: 15px;
+            text-align: center;
+        }
+
+        .calendar__item--active {
+            color: white;
+            background-color: red;
+        }
+
+        .calendar__link {
+            text-decoration: none;
+        }
+
+        .calendar__wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+
+    <div class="calendar">
+        <div class="calendar__wrap">
+            <div class="calendar__info"></div>
+            <div class="calendar__navigation">
+                <a href="#" class="calendar__link  calendar__prev">&larr;</a>
+                <a href="#" class="calendar__link  calendar__next">&rarr;</a>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Пн</td>
+                    <td>Вт</td>
+                    <td>Ср</td>
+                    <td>Чт</td>
+                    <td>Пт</td>
+                    <td>Сб</td>
+                    <td>Вс</td>
+                </tr>
+            </thead>
+            <tbody class="calendar__dates"></tbody>
+        </table>
+
+    </div>
+
+
+    <script>
+
+        const calendar = document.querySelector('.calendar');
+        const calendarInfo = calendar.querySelector('.calendar__info');
+        const calendarNavigation = calendar.querySelector('.calendar__navigation');
+        const calendarDates = calendar.querySelector('.calendar__dates');
+        const calendarPrev = calendar.querySelector('.calendar__prev');
+        const calendarNext = calendar.querySelector('.calendar__next');
+
+
+        const dateInint = new Date();
+
+        const year = setupDates().year,
+            month = setupDates().month,
+            day = setupDates().day,
+            date = setupDates().date;
+
+        let monthNumber = month;
+        let yearNumber = year;
+        const arrMonths = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+
+
+        createDatesTable(year, month, date, calendarDates);
+
+
+
+        function createDatesTable(argYear, argMonth, argDate) {
+
+
+            const daysInMonth = getLastDayOfMonth(argYear, argMonth);
+
+            const firstDay = 1;
+            // console.log(daysInMonth);
+            const NumberOfFirstDayRussianVariant = getNumberOfDayRussianVariant(argYear, argMonth, firstDay);
+            // console.log(NumberOfFirstDayRussianVariant);
+            const NumberOfLastDayRussianVariant = getNumberOfDayRussianVariant(argYear, argMonth, daysInMonth);
+            // console.log(NumberOfLastDayRussianVariant);
+            const countEmptyStartMonth = getCountEmpty(NumberOfFirstDayRussianVariant, 'start');
+            // console.log(countEmptyStartMonth);
+            const countEmptyFinishMonth = getCountEmpty(NumberOfLastDayRussianVariant, 'finish');
+            // console.log(countEmptyFinishMonth);
+            const arrNumbers = makeArr(firstDay, daysInMonth);
+            // console.log(arrNumbers);
+            const arrNumbersWidthStartEmptys = makeArrWidthEmptys(arrNumbers, 'start', countEmptyStartMonth);
+            // console.log(arrNumbersWidthStartEmptys);
+            const arrNumbersWidthFinishEmptys = makeArrWidthEmptys(arrNumbersWidthStartEmptys, 'finish', countEmptyFinishMonth);
+            // console.log(arrNumbersWidthFinishEmptys);
+            const chunkedArr = chunkArr(arrNumbersWidthFinishEmptys);
+            // console.log(chunkedArr);
+            makeTableFromArr(chunkedArr, calendarDates, argDate, argYear, argMonth);
+
+            makeInfo(argYear, argMonth, calendarInfo);
+
+
+        };
+        // createDatesTable(2019, 2, 1)
+
+        calendarNext.addEventListener('click', getNextMonth);
+
+        calendarPrev.addEventListener('click', getPrevMonth);
+
+
+
+
+        function getPrevMonth() {
+
+            clearTable();
+
+            if (monthNumber > 0) {
+
+                monthNumber -= 1;
+
+            } else {
+
+                yearNumber -= 1;
+
+                monthNumber = arrMonths.length - 1;
+            }
+
+            createDatesTable(yearNumber, monthNumber, date, calendarDates);
+
+        };
+
+
+        function getNextMonth() {
+
+            clearTable();
+
+            if (monthNumber < arrMonths.length - 1) {
+
+                monthNumber += 1;
+
+            } else {
+
+                yearNumber += 1;
+
+                monthNumber = 0;
+
+            }
+
+            createDatesTable(yearNumber, monthNumber, date, calendarDates);
+
+        };
+
+
+        function clearTable() {
+
+            calendarDates.innerHTML = '';
+
+        };
+
+
+        function makeInfo(argYear, argMonth, argElem) {
+
+            argElem.innerHTML = ucFirst(arrMonths[argMonth]) + ' ' + argYear;
+
+        };
+
+
+        function ucFirst(argStr) {
+
+            return argStr[0].toUpperCase() + argStr.slice(1);
+
+        };
+
+
+        function makeTableFromArr(argArr, argElem, argDate, argYear, argMonth) {
+
+            for (let i = 0; i < argArr.length; i += 1) {
+
+                const tr = document.createElement('tr');
+
+                for (let j = 0; j < argArr[i].length; j += 1) {
+
+                    const td = document.createElement('td');
+
+                    td.innerHTML = argArr[i][j];
+
+                    td.classList.add('calendar__item');
+
+                    if (argArr[i][j] === argDate && argYear === year && argMonth === month) {
+
+                        td.classList.add('calendar__item--active');
+
+                    }
+
+                    tr.appendChild(td);
+
+                }
+
+                argElem.appendChild(tr);
+
+            }
+
+        };
+
+
+        function chunkArr(argArr) {
+
+            const result = [];
+            let chunk = [];
+
+            let count = argArr.length / 7;
+
+            for (let i = 0; i < count; i += 1) {
+
+                chunk = argArr.splice(0, 7);
+
+                result.push(chunk);
+
+            }
+
+            return result;
+
+        };
+
+
+
+
+        function makeArrWidthEmptys(argArr, argFlag, argNum) {
+
+            // const arr = [];
+
+            if (argFlag === 'start') {
+
+                for (let i = 0; i < argNum; i += 1) {
+
+                    argArr.unshift("");
+
+                }
+
+            }
+
+            if (argFlag === 'finish') {
+
+                for (let i = 0; i < argNum; i += 1) {
+
+                    argArr.push("");
+
+                }
+
+            }
+
+            return argArr;
+
+        };
+
+
+        function makeArr(argFrom, argTo) {
+
+            const arr = [];
+
+            for (let i = argFrom; i <= argTo; i += 1) {
+
+                arr.push(i)
+
+            }
+
+            return arr;
+
+        };
+
+
+        function getCountEmpty(argNum, argFlag) {
+
+            let result = 0;
+
+            if (argFlag === 'start') {
+
+                result = argNum - 1;
+
+            }
+
+            if (argFlag === 'finish') {
+
+                result = 7 - argNum;
+
+            }
+
+            return result;
+
+        };
+
+
+        function getNumberOfDayRussianVariant(argYear, argMonth, argDate) {
+
+            let result = getNumberOfDay(argYear, argMonth, argDate);
+
+            if (result === 0) {
+
+                result = 7;
+
+            }
+            // else {
+
+            //     result -= 1;
+
+            // }
+
+            return result;
+
+        };
+        // console.log(getNumberOfDayRussianVariant(2019, 0, 1));
+
+
+
+        function getNumberOfDay(argYear, argMonth, argDate) {
+
+            const date = new Date(argYear, argMonth, argDate);
+
+            return date.getDay();
+
+        };
+        // console.log(getNumberOfDay(2019, 0, 20));
+
+
+
+
+        function getLastDayOfMonth(argYear, argMonth) {
+
+            const date = new Date(argYear, argMonth + 1, 0);
+
+            return date.getDate();
+
+        };
+        // console.log(getLastDayOfMonth(2016, 1));
+
+
+        function setupDates(argDate) {
+
+            if (argDate === undefined) {
+                argDate = dateInint;
+            }
+
+            return {
+                year: argDate.getFullYear(),
+                month: argDate.getMonth(),
+                day: argDate.getDay(),
+                date: argDate.getDate()
+            };
+
+        };
+        // console.log(setupDates().year);
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
