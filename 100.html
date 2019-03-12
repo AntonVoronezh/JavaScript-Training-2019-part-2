@@ -310,6 +310,25 @@
         };
 
 
+        function getNumberOfDayRussianVariant(argYear, argMonth, argDate) {
+
+            let result = getNumberOfDay(argYear, argMonth, argDate);
+
+            if (result === 0) {
+
+                result = 7;
+
+            }
+            // else {
+
+            //     result -= 1;
+
+            // }
+
+            return result;
+
+        };
+        // console.log(getNumberOfDayRussianVariant(2019, 0, 1));
 
 
 
