@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .calendar {
+            display: inline-block;
+            border: 1px solid #ccc;
+            padding: 3px;
+        }
+
+        .calendar__item {
+            border: 1px solid #ccc;
+            width: 25px;
+            height: 15px;
+            text-align: center;
+        }
+
+        .calendar__item--active {
+            color: white;
+            background-color: red;
+        }
+
+        .calendar__link {
+            text-decoration: none;
+        }
+
+        .calendar__wrap {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <title>AntonVoronezh учеба по JavaScript DOM </title>
+</head>
+
+<body>
+
+    <div class="calendar">
+        <div class="calendar__wrap">
+            <div class="calendar__info"></div>
+            <div class="calendar__navigation">
+                <a href="#" class="calendar__link  calendar__prev">&larr;</a>
+                <a href="#" class="calendar__link  calendar__next">&rarr;</a>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Пн</td>
+                    <td>Вт</td>
+                    <td>Ср</td>
+                    <td>Чт</td>
+                    <td>Пт</td>
+                    <td>Сб</td>
+                    <td>Вс</td>
+                </tr>
+            </thead>
+            <tbody class="calendar__dates"></tbody>
+        </table>
+
+    </div>
+
+
+    <script>
+
+        const calendar = document.querySelector('.calendar');
+        const calendarInfo = calendar.querySelector('.calendar__info');
+        const calendarNavigation = calendar.querySelector('.calendar__navigation');
+        const calendarDates = calendar.querySelector('.calendar__dates');
+        const calendarPrev = calendar.querySelector('.calendar__prev');
+        const calendarNext = calendar.querySelector('.calendar__next');
+
+
+        const dateInint = new Date();
+
+        const year = setupDates().year,
+            month = setupDates().month,
+            day = setupDates().day,
+            date = setupDates().date;
+
+        let monthNumber = month;
+        let yearNumber = year;
+        const arrMonths = ['январь', 'февраль', 'март', 'апрель', 'март', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь', 'декабрь']
+
+
+
+        createDatesTable(year, month, date, calendarDates);
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
