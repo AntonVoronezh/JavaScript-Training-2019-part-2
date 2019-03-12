@@ -92,6 +92,41 @@
 
 
 
+        function createDatesTable(argYear, argMonth, argDate) {
+
+
+            const daysInMonth = getLastDayOfMonth(argYear, argMonth);
+
+            const firstDay = 1;
+            // console.log(daysInMonth);
+            const NumberOfFirstDayRussianVariant = getNumberOfDayRussianVariant(argYear, argMonth, firstDay);
+            // console.log(NumberOfFirstDayRussianVariant);
+            const NumberOfLastDayRussianVariant = getNumberOfDayRussianVariant(argYear, argMonth, daysInMonth);
+            // console.log(NumberOfLastDayRussianVariant);
+            const countEmptyStartMonth = getCountEmpty(NumberOfFirstDayRussianVariant, 'start');
+            // console.log(countEmptyStartMonth);
+            const countEmptyFinishMonth = getCountEmpty(NumberOfLastDayRussianVariant, 'finish');
+            // console.log(countEmptyFinishMonth);
+            const arrNumbers = makeArr(firstDay, daysInMonth);
+            // console.log(arrNumbers);
+            const arrNumbersWidthStartEmptys = makeArrWidthEmptys(arrNumbers, 'start', countEmptyStartMonth);
+            // console.log(arrNumbersWidthStartEmptys);
+            const arrNumbersWidthFinishEmptys = makeArrWidthEmptys(arrNumbersWidthStartEmptys, 'finish', countEmptyFinishMonth);
+            // console.log(arrNumbersWidthFinishEmptys);
+            const chunkedArr = chunkArr(arrNumbersWidthFinishEmptys);
+            // console.log(chunkedArr);
+            makeTableFromArr(chunkedArr, calendarDates, argDate, argYear, argMonth);
+
+            makeInfo(argYear, argMonth, calendarInfo);
+
+
+        };
+        // createDatesTable(2019, 2, 1)
+
+        calendarNext.addEventListener('click', getNextMonth);
+
+        calendarPrev.addEventListener('click', getPrevMonth);
+
 
 
 
